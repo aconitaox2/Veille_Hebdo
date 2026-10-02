@@ -1,0 +1,94 @@
+{
+  "week": "2026-W40",
+  "date": "2026-10-02",
+  "items": [
+    {
+      "title": "Support des clés d'accès (passkeys) des IdP tiers pour les applications Microsoft sur mobile et macOS",
+      "tag": "Entra ID",
+      "summary": "Microsoft étend l'utilisation des passkeys (FIDO2) et clés de sécurité matérielles gérées par des fournisseurs d'identité externes (SAML 2.0 / WS-Fed) aux applications natives Microsoft (Teams, Outlook, OneDrive, etc.) sur Android, iOS et macOS managé. L'authentification bascule désormais vers le navigateur système plutôt qu'une webview intégrée restrictive avant de redonner la main au broker d'identité Microsoft. Pour le consultant, cela lève un verrou majeur d'adoption du passwordless multi-fournisseur : il convient de vérifier la configuration des profils de redirection de navigateur et de valider les cinématiques de connexion sur un parc de test mobile.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoft-entra-blog/sign-in-to-microsoft-apps-with-passkeys-from-external-identity-providers/4556448",
+          "title": "Sign in to Microsoft apps with passkeys from external identity providers",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/overview-authentication",
+          "title": "Microsoft Entra authentication methods - Passkeys",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Retrait effectif des stratégies héritées dans Entra ID Protection au profit de l'Accès conditionnel",
+      "tag": "Conditional Access",
+      "summary": "Au 1er octobre 2026, Microsoft a acté la mise hors service définitive des interfaces historiques de configuration 'User Risk Policy' et 'Sign-in Risk Policy' dans le portail Entra ID Protection. La remédiation automatisée des risques (déclenchement de MFA sur Sign-in Risk, réinitialisation de mot de passe sécurisée sur User Risk) doit désormais être intégralement gérée par le moteur d'Accès conditionnel moderne. Le consultant doit contrôler l'ensemble des tenants administrés afin de vérifier qu'aucune ancienne règle n'est restée active sans équivalent déployé dans l'Accès conditionnel, ce qui neutraliserait la remédiation automatique du risque.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-policies",
+          "title": "Migrate risk policies to Microsoft Entra Conditional Access",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        },
+        {
+          "url": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=09213cdc-9f30-4e82-aa6f-9b6e8d82dab3&redirect_uri=https%3A%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fs%2Fauth%2Foauth2callback%2Fproviderid%2Fdefault&response_type=code&state=ORJK6zy1SViNRX0FUdb6jx3uOqd7Ta_6lNxvyjHmk0vDu-CBhdDUJeMu6YF2upIr4WzXgqJjG63rcr8AOKkHNR-CGF7KiUpNR9AinlnoHM9iE3dQpwLrXYmg3VY4_glg0TwPPA3bscnnzLA9r9tqPBkcRvrvXHgCn9ZOblbUQQOdFXK13vToCPpUvK2P6RWg&scope=User.Read+openid+email+profile+offline_access&referer=https%3A%2F%2Ftechcommunity.microsoft.com%2Fcategory%2Fcommunities%2Fblog%2Fidentity",
+          "title": "Microsoft Entra Blog",
+          "type": "officielle",
+          "domain": "login.microsoftonline.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Intune : Déploiement échelonné des applications et vue unifiée de diagnostic",
+      "tag": "Intune",
+      "summary": "Dans sa mise à jour de fin septembre 2026 (release de service 2609), Microsoft déploie les capacités de déploiement progressif (staged rollouts) pour les applications et stratégies de configuration, accompagnées d'un espace consolidé d'investigation des terminaux. Cette approche réduit significativement l'impact des déploiements défectueux en permettant de définir des seuils de progression et des pauses automatiques sur signaux d'anomalie. L'administrateur doit tester la création d'anneaux de déploiement échelonné sur un sous-ensemble d'utilisateurs pilotes et auditer les nouveaux journaux d'investigation unifiés pour le support N2/N3.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoftintuneblog/what%E2%80%99s-new-in-microsoft-intune-%E2%80%93-september/4537394",
+          "title": "What's new in Microsoft Intune – September",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/intune/whats-new/",
+          "title": "What's new in Microsoft Intune - Service release 2609",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Exchange Online : Blocage des requêtes EWS pour les applications tierces",
+      "tag": "Exchange Online",
+      "summary": "Depuis le 1er octobre 2026, Microsoft a engagé le blocage effectif des flux Exchange Web Services (EWS) provenant des applications tierces (non-Microsoft) se connectant à Exchange Online, accélérant la bascule vers les API Microsoft Graph. Cette mesure vise à clore l'exposition aux protocoles historiques moins granulaires en termes de contrôle d'accès. Le consultant doit immédiatement inspecter les logs de connexion EWS du tenant pour repérer d'éventuels outils de reporting, passerelles de messagerie ou scripts internes encore dépendants d'EWS, et valider la configuration temporaire d'autorisation (allowed app IDs) le temps de migrer les flux vers Graph.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/exchange/retirement-of-exchange-web-services-in-exchange-online/3932822",
+          "title": "Retirement of Exchange Web Services in Exchange Online",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Defender for Office 365 : Protection contre l'injection de prompts et résumés de détonation",
+      "tag": "Defender for Office 365",
+      "summary": "Microsoft Defender for Office 365 introduit des filtres heuristiques ciblant la détection d'injections de prompts (prompt injection) dans le flux entrant, empêchant que des e-mails piégés ne manipulent les assistants et agents d'IA connectés à la boîte aux lettres. Parallèlement, l'interface d'entité d'e-mail intègre désormais un résumé automatisé de bac à sable (detonation summary) corrélé au framework MITRE ATT&CK et détaillant la chaîne de redirection. Le consultant doit tester la détection sur des cas d'usage impliquant Microsoft 365 Copilot et former les analystes SOC à l'exploitation de la nouvelle vue de détonation pour accélérer le triage.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=09213cdc-9f30-4e82-aa6f-9b6e8d82dab3&redirect_uri=https%3A%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fs%2Fauth%2Foauth2callback%2Fproviderid%2Fdefault&response_type=code&state=C9wN_ilGnKhNg2n0vaJpAIXN5N1-QaRRfgmk1-Q0fRWCgF93Omaz1Ju4EBijxRMbRRPM6l-9uDMgnlvAzrMAz0Xiv0kgUz8o3UJS-RNzsHWsyfBI9HFeu8D3lwWAAtXTEsIV4Mr2sHrSt7f5JNCSy5F6wrx1i6ZwStPkdMplR6O5WE7e_Hfmt2xA17-j_PUpbbwsQ54rUgpOD4w2R7VrQByH6xzsb6TIO26SZmqDXI4z11lzWdOvkEzz7eJfUV7K&scope=User.Read+openid+email+profile+offline_access&referer=https%3A%2F%2Ftechcommunity.microsoft.com%2Fblog%2Fmicrosoft-defender-for-office-365-blog%2Fbg-p%2FMicrosoftDefenderforOffice365Blog",
+          "title": "Microsoft Defender for Office 365 Tech Community Blog",
+          "type": "officielle",
+          "domain": "login.microsoftonline.com"
+        }
+      ]
+    }
+  ]
+}

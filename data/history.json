@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "section": "microsoft",
+    "week": "2026-W40",
+    "title": "Support des clés d'accès (passkeys) des IdP tiers pour les applications Microsoft sur mobile et macOS"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W40",
+    "title": "Retrait effectif des stratégies héritées dans Entra ID Protection au profit de l'Accès conditionnel"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W40",
+    "title": "Microsoft Intune : Déploiement échelonné des applications et vue unifiée de diagnostic"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W40",
+    "title": "Exchange Online : Blocage des requêtes EWS pour les applications tierces"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W40",
+    "title": "Defender for Office 365 : Protection contre l'injection de prompts et résumés de détonation"
+  }
+]

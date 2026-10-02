@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "t": "Support des clés d'accès (passkeys) des IdP tiers pour les applications Microsoft sur mobile et macOS",
+    "s": "Microsoft étend l'utilisation des passkeys (FIDO2) et clés de sécurité matérielles gérées par des fournisseurs d'identité externes (SAML 2.0 / WS-Fed) aux applications natives Microsoft (Teams, Outlook, OneDrive, etc.) sur Android, iOS et macOS managé. L'authentification bascule désormais vers le na",
+    "g": "Entra ID",
+    "w": "2026-W40",
+    "u": "microsoft/2026-W40.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Retrait effectif des stratégies héritées dans Entra ID Protection au profit de l'Accès conditionnel",
+    "s": "Au 1er octobre 2026, Microsoft a acté la mise hors service définitive des interfaces historiques de configuration 'User Risk Policy' et 'Sign-in Risk Policy' dans le portail Entra ID Protection. La remédiation automatisée des risques (déclenchement de MFA sur Sign-in Risk, réinitialisation de mot de",
+    "g": "Conditional Access",
+    "w": "2026-W40",
+    "u": "microsoft/2026-W40.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Microsoft Intune : Déploiement échelonné des applications et vue unifiée de diagnostic",
+    "s": "Dans sa mise à jour de fin septembre 2026 (release de service 2609), Microsoft déploie les capacités de déploiement progressif (staged rollouts) pour les applications et stratégies de configuration, accompagnées d'un espace consolidé d'investigation des terminaux. Cette approche réduit significative",
+    "g": "Intune",
+    "w": "2026-W40",
+    "u": "microsoft/2026-W40.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Exchange Online : Blocage des requêtes EWS pour les applications tierces",
+    "s": "Depuis le 1er octobre 2026, Microsoft a engagé le blocage effectif des flux Exchange Web Services (EWS) provenant des applications tierces (non-Microsoft) se connectant à Exchange Online, accélérant la bascule vers les API Microsoft Graph. Cette mesure vise à clore l'exposition aux protocoles histor",
+    "g": "Exchange Online",
+    "w": "2026-W40",
+    "u": "microsoft/2026-W40.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Defender for Office 365 : Protection contre l'injection de prompts et résumés de détonation",
+    "s": "Microsoft Defender for Office 365 introduit des filtres heuristiques ciblant la détection d'injections de prompts (prompt injection) dans le flux entrant, empêchant que des e-mails piégés ne manipulent les assistants et agents d'IA connectés à la boîte aux lettres. Parallèlement, l'interface d'entit",
+    "g": "Defender for Office 365",
+    "w": "2026-W40",
+    "u": "microsoft/2026-W40.html",
+    "sec": "Nouveautés Microsoft"
+  }
+]

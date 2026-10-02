@@ -6,7 +6,7 @@
 
 general:
   site_title: "Veille cyber & Microsoft 365"
-  model: "gemini-2.5-flash"      # option A gratuite ; changer ici pour basculer
+  model: "gemini-3.8-flash"      # palier payant (recherche Google incluse) ; changer ici pour basculer
   timezone: "Europe/Paris"
   send_weekday: 6                # 0 = lundi ... 6 = dimanche
   send_hour: 18

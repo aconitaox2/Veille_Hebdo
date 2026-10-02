@@ -285,6 +285,7 @@ def build_site(cfg: dict) -> None:
     search, latest = [], []
     common = dict(site_title=cfg["general"]["site_title"], sections=public)
     for s in public:
+        (SITE / s["id"]).mkdir(exist_ok=True)
         weeks = sorted((DATA / "weeks" / s["id"]).glob("*.json"), reverse=True)
         archive = []
         for i, wf in enumerate(weeks):
@@ -293,7 +294,6 @@ def build_site(cfg: dict) -> None:
             archive.append({"week": wk["week"], "count": len(items)})
             html = env.get_template("week.html.j2").render(
                 **common, section=s, week=wk["week"], items=items, root="../", active=s["id"])
-            (SITE / s["id"]).mkdir(exist_ok=True)
             (SITE / s["id"] / f"{wk['week']}.html").write_text(html, encoding="utf-8")
             for it in items:
                 search.append({"t": it["title"], "s": it["summary"][:300], "g": it["tag"],

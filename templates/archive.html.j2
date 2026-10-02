@@ -1,0 +1,8 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ section.title }} – archive · {{ site_title }}{% endblock %}
+{% block content %}
+<h1>{{ section.title }}</h1>
+<ul class="archive">
+  {% for a in archive %}<li><a href="{{ a.week }}.html">Semaine {{ a.week.split('-W')[1] }} <span class="muted">({{ a.week.split('-W')[0] }})</span></a><span class="count">{{ a.count }} info{{ 's' if a.count > 1 }}</span></li>{% else %}<li class="muted">Aucune semaine publiée pour l'instant.</li>{% endfor %}
+</ul>
+{% endblock %}

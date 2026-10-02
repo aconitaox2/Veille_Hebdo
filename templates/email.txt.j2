@@ -1,0 +1,10 @@
+{{ section.title }} – semaine {{ week.split('-W')[1] }}
+{% if not items %}
+Semaine calme : aucune information retenue.
+{% endif %}{% for it in items %}
+[{{ it.tag }}] {{ it.title }}
+{{ it.summary }}
+{% if it.note %}{{ section.note_label }} : {{ it.note }}
+{% endif %}{% for s in it.sources %}  - ({{ s.type }}) {{ s.title }} – {{ s.url }}
+{% endfor %}{% endfor %}
+{% if page_url %}Site : {{ page_url }}{% endif %}

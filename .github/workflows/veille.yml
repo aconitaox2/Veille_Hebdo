@@ -1,0 +1,92 @@
+name: Veille hebdo
+
+on:
+  schedule:
+    - cron: "0 16 * * 0"   # 18 h Paris (heure d'été)
+    - cron: "0 17 * * 0"   # 18 h Paris (heure d'hiver)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Test à blanc : aucun mail envoyé, rien publié"
+        type: boolean
+        default: true
+      sections:
+        description: "Sections à lancer (ex. microsoft,menaces) – vide = toutes"
+        type: string
+        default: ""
+
+permissions: {}            # aucun droit par défaut, accordés job par job
+
+concurrency:
+  group: veille
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write      # commit de l'historique et du site
+    outputs:
+      ran: ${{ steps.gen.outputs.ran }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Dépendances
+        run: pip install -r requirements.txt
+
+      - name: Générer la veille
+        id: gen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_TO_MICROSOFT: ${{ secrets.MAIL_TO_MICROSOFT }}
+          MAIL_TO_MENACES: ${{ secrets.MAIL_TO_MENACES }}
+          MAIL_TO_OUTILS: ${{ secrets.MAIL_TO_OUTILS }}
+          TRIGGER_SCHEDULE: ${{ github.event.schedule }}
+          FORCE: ${{ github.event_name == 'workflow_dispatch' }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+          ONLY_SECTIONS: ${{ inputs.sections }}
+        run: python veille.py
+
+      - name: Enregistrer l'historique et le site
+        if: ${{ !cancelled() && steps.gen.outputs.ran == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
+        run: |
+          git config user.name "veille-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          if git diff --cached --quiet; then
+            echo "Rien à enregistrer."
+          else
+            git commit -m "Veille du $(date +%F)"
+            git push
+          fi
+
+      - name: Préparer la publication
+        if: ${{ !cancelled() && steps.gen.outputs.ran == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    if: ${{ !cancelled() && needs.build.outputs.ran == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

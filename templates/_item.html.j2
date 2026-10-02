@@ -1,0 +1,9 @@
+<article class="item">
+  <span class="tag">{{ it.tag }}</span>
+  <h3>{{ it.title }}</h3>
+  <p>{{ it.summary }}</p>
+  {% if it.note %}<div class="note"><strong>{{ section.note_label }} :</strong> {{ it.note }}</div>{% endif %}
+  <ul class="sources">
+    {% for s in it.sources %}<li><span class="stype">{{ s.type }}</span><a href="{{ s.url }}" target="_blank" rel="noopener noreferrer nofollow">{{ s.title }}</a><span class="dom">{{ s.domain }}</span></li>{% endfor %}
+  </ul>
+</article>

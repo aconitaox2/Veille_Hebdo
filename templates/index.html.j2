@@ -1,0 +1,18 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<section class="search">
+  <label for="q" class="sr">Rechercher dans la veille</label>
+  <input id="q" type="search" placeholder="Rechercher dans toute la veille…" autocomplete="off">
+  <ul id="results" class="results"></ul>
+</section>
+{% for l in latest %}
+<section class="latest">
+  <h2>{{ l.section.title }} <span class="muted">· semaine {{ l.week.split('-W')[1] }}</span></h2>
+  {% for it in l.entries %}{% with section = l.section %}{% include "_item.html.j2" %}{% endwith %}{% endfor %}
+  <p><a class="more" href="{{ l.section.id }}/index.html">Toute l'archive {{ l.section.title }} →</a></p>
+</section>
+{% else %}
+<p class="muted">La première veille sera publiée dimanche prochain.</p>
+{% endfor %}
+{% endblock %}
+{% block scripts %}<script src="assets/search.js" defer></script>{% endblock %}

@@ -1,0 +1,97 @@
+# =====================================================================
+#  Configuration de la veille hebdomadaire
+#  Ce fichier est PUBLIC : n'y mets jamais d'adresse mail, de nom de
+#  client ni d'information interne. Les destinataires sont des secrets.
+# =====================================================================
+
+general:
+  site_title: "Veille cyber & Microsoft 365"
+  model: "gemini-2.5-flash"      # option A gratuite ; changer ici pour basculer
+  timezone: "Europe/Paris"
+  send_weekday: 6                # 0 = lundi ... 6 = dimanche
+  send_hour: 18
+  lookback_days: 7               # fraîcheur maximale des infos
+  history_weeks: 6               # sujets récents transmis pour éviter les doublons
+
+# Liste partagée par les sections qui ont "tags_from: technologies"
+technologies:
+  - "Entra ID"
+  - "Conditional Access"
+  - "Intune"
+  - "Defender for Endpoint"
+  - "Defender for Identity"
+  - "Defender for Office 365"
+  - "Defender for Cloud Apps"
+  - "Purview"
+  - "Exchange Online"
+  - "SharePoint"
+  - "Azure"
+  - "Microsoft 365"
+
+# Domaines considérés comme fiables même s'ils bloquent les robots (403)
+trusted_domains:
+  - learn.microsoft.com
+  - techcommunity.microsoft.com
+  - microsoft.com
+  - msrc.microsoft.com
+  - cert.ssi.gouv.fr
+  - cyber.gouv.fr
+  - cisa.gov
+  - github.com
+
+sections:
+  - id: microsoft
+    title: "Nouveautés Microsoft"
+    subject_prefix: "[Veille M365]"
+    target_items: 5
+    frequency: weekly            # weekly | biweekly | monthly
+    publish_site: true
+    recipient_env: MAIL_TO_MICROSOFT   # facultatif, sinon MAIL_TO
+    tags_from: technologies
+    note_label: null
+    instructions: |
+      Nouveautés, changements, dépréciations et passages en disponibilité générale
+      dans l'écosystème Microsoft 365 sécurité et Modern Workplace : Entra ID
+      (identités, Conditional Access, SSPR, B2B et invités, méthodes
+      d'authentification), Intune, Microsoft Defender (MDE, MDI, MDO, MDCA),
+      Purview, Exchange Online, SharePoint, Azure et évolutions transverses M365.
+      Dans le résumé, explique l'impact concret pour un consultant qui administre
+      ces services et ce qu'il faut vérifier ou tester.
+
+  - id: menaces
+    title: "Attaques et menaces"
+    subject_prefix: "[Veille Menaces]"
+    target_items: 5
+    frequency: weekly
+    publish_site: true
+    recipient_env: MAIL_TO_MENACES
+    tags_from: technologies
+    note_label: "Se protéger et détecter"
+    instructions: |
+      Attaques majeures de la semaine (focus France et Europe), techniques visant
+      la stack Microsoft (phishing AiTM, vol de jetons, device code phishing,
+      consent phishing, abus de comptes invités, contournement de MFA…) et
+      vulnérabilités activement exploitées sur ces produits (CISA KEV, CERT-FR,
+      MSRC). Retiens uniquement ce qui concerne les technologies listées.
+      Dans la note, indique comment s'en protéger ou le détecter avec ces outils
+      (politique Conditional Access, réglage Defender, idée de requête KQL).
+
+  - id: outils
+    title: "Outils"
+    subject_prefix: "[Veille Outils]"
+    target_items: 5
+    frequency: weekly
+    publish_site: false          # jamais publié sur le site public
+    recipient_env: MAIL_TO_OUTILS
+    tags_from: categories
+    categories: ["Offensif / pentest", "OSINT", "Défensif / blue team", "Logiciel PC"]
+    note_label: "Angle défensif"
+    instructions: |
+      Outils notables récemment publiés ou mis à jour : offensif et pentest (en
+      priorité ceux qui ciblent Entra ID et Microsoft 365), OSINT, défensif et
+      blue team (audit, hunting, durcissement), et logiciels PC utiles
+      (utilitaires, productivité, administration).
+      Dans le résumé, donne des indices de réputation : auteur ou éditeur,
+      ancienneté, activité du projet. Ne fournis jamais de lien de téléchargement
+      direct : uniquement la page du projet ou du dépôt.
+      Pour les outils offensifs, la note explique comment leur usage se détecte.

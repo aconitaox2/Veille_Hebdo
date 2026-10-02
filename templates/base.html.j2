@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>{% block title %}{{ site_title }}{% endblock %}</title>
+<link rel="stylesheet" href="{{ root }}assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="{{ root }}index.html">{{ site_title }}</a>
+    <nav>
+      <a href="{{ root }}index.html" {% if active == 'home' %}class="on"{% endif %}>Accueil</a>
+      {% for s in sections %}<a href="{{ root }}{{ s.id }}/index.html" {% if active == s.id %}class="on"{% endif %}>{{ s.title }}</a>{% endfor %}
+    </nav>
+  </div>
+</header>
+<main class="wrap">{% block content %}{% endblock %}</main>
+<footer class="wrap foot">Récaps générés par IA à partir des sources citées. Mise à jour chaque dimanche.</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

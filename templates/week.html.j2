@@ -1,0 +1,8 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ section.title }} – {{ week }} · {{ site_title }}{% endblock %}
+{% block content %}
+<p class="crumb"><a href="index.html">{{ section.title }}</a> / Semaine {{ week.split('-W')[1] }}</p>
+<h1>{{ section.title }} <span class="muted">· semaine {{ week.split('-W')[1] }}</span></h1>
+{% if not items %}<p class="muted">Semaine calme : aucune information retenue.</p>{% endif %}
+{% for it in items %}{% include "_item.html.j2" %}{% endfor %}
+{% endblock %}

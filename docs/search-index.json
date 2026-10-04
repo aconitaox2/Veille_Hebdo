@@ -38,5 +38,13 @@
     "w": "2026-W40",
     "u": "microsoft/2026-W40.html",
     "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Exploitation active de la faille RCE SharePoint CVE-2026-65660 et attaques du ransomware Warlock en Europe",
+    "s": "La vulnérabilité CVE-2026-65660 (CVSS 8.8, injection de code conduisant à une exécution de code à distance) affectant SharePoint Server a été intégrée au catalogue CISA KEV suite à des attaques avérées. Dans le même temps, un rapport de Symantec publié cette semaine documente des cyberattaques en co",
+    "g": "SharePoint",
+    "w": "2026-W40",
+    "u": "menaces/2026-W40.html",
+    "sec": "Attaques et menaces"
   }
 ]

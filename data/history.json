@@ -23,5 +23,35 @@
     "section": "microsoft",
     "week": "2026-W40",
     "title": "Defender for Office 365 : Protection contre l'injection de prompts et résumés de détonation"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W40",
+    "title": "Exploitation active de la faille RCE SharePoint CVE-2026-65660 et attaques du ransomware Warlock en Europe"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W40",
+    "title": "NeuroSploit v4.2.1 : framework de pentest autonome et évaluation multi-environnements"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W40",
+    "title": "Maester : mise à jour du framework d'automatisation des audits de sécurité Microsoft 365"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W40",
+    "title": "Monkey365 : évolution du moteur d'évaluation de sécurité pour Microsoft 365 et Azure"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W40",
+    "title": "EntraTrace : cartographie comportementale et détection de l'outillage offensif Entra ID"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W40",
+    "title": "AgrusScanner v1.0 : utilitaire Windows pour la découverte réseau et l'inventaire du Shadow AI"
   }
 ]

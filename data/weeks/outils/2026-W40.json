@@ -1,0 +1,100 @@
+{
+  "week": "2026-W40",
+  "date": "2026-10-04",
+  "items": [
+    {
+      "title": "NeuroSploit v4.2.1 : framework de pentest autonome et évaluation multi-environnements",
+      "tag": "Offensif / pentest",
+      "summary": "Développé par le chercheur en cybersécurité Joas Antonio dos Santos, NeuroSploit est un framework open source récent et très actif d'automatisation de tests d'intrusion par IA orchestrant plus de 400 agents spécialisés. Sa version v4.2.1, publiée le 4 octobre 2026, introduit l'export direct au format standard SARIF 2.1.0 facilitant l'intégration des vulnérabilités dans Azure DevOps et GitHub. L'outil prend en charge des scénarios offensifs variés allant des API web à l'infrastructure Active Directory/Azure, ainsi que le red teaming sur des agents et connecteurs MCP.",
+      "note": "Sur l'écosystème Microsoft (Azure et Entra ID), l'exécution des modules offensifs de NeuroSploit se manifeste par des rafales de requêtes Graph/ARM et des tentatives d'énumération automatisées, générant des alertes de découverte d'actifs ou d'anomalies de User-Agent dans Microsoft Defender for Cloud et Microsoft Sentinel.",
+      "sources": [
+        {
+          "url": "https://github.com/JoasASantos/NeuroSploit/releases",
+          "title": "Releases · JoasASantos/NeuroSploit - GitHub",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/JoasASantos/NeuroSploit",
+          "title": "JoasASantos/NeuroSploit: Advanced AI-powered penetration testing framework",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "Maester : mise à jour du framework d'automatisation des audits de sécurité Microsoft 365",
+      "tag": "Défensif / blue team",
+      "summary": "Initié par des experts de l'écosystème identité Microsoft (dont Merill Fernando) et soutenu par une communauté open source particulièrement active, Maester est un framework de test continu fondé sur Pester pour auditer la posture des environnements cloud. La version publiée fin septembre 2026 intègre de nouvelles vérifications automatisées et optimise la compatibilité avec les différents tenants, y compris les clouds souverains. L'outil évalue la configuration d'Entra ID et Microsoft 365 en se calquant directement sur les recommandations de sécurité de Microsoft et les guides du CIS et de la CISA.",
+      "note": "Maester requiert des autorisations de lecture seule (comme Global Reader ou les rôles délégués Directory.Read.All) ; son exécution se traduit par des requêtes de consultation dans les Sign-in Logs et ne perturbe pas les services de production.",
+      "sources": [
+        {
+          "url": "https://github.com/maester365/maester/releases",
+          "title": "Releases · maester365/maester - GitHub",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/maester365/maester",
+          "title": "maester365/maester: Test automation framework for Microsoft cloud security",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "Monkey365 : évolution du moteur d'évaluation de sécurité pour Microsoft 365 et Azure",
+      "tag": "Défensif / blue team",
+      "summary": "Maintenu depuis plusieurs années par le chercheur Juan Garrido (silverhack), Monkey365 est un outil d'audit de sécurité et de conformité éprouvé et régulièrement actualisé pour les tenants cloud Microsoft. Sa dernière version publiée fin septembre 2026 affine l'extraction et l'analyse des politiques de sécurité sous Microsoft Purview, Exchange Online, Teams et Entra ID. Sa force réside dans son architecture autonome sans dépendances externes lourdes, facilitant les revues rapides sans installer la totalité des modules administratifs Microsoft.",
+      "note": "Les opérations de collecte génèrent des accès en lecture aux API d'administration Microsoft 365 enregistrés dans les journaux d'audit unifiés (Unified Audit Log) et les journaux de connexion Entra ID.",
+      "sources": [
+        {
+          "url": "https://github.com/silverhack/monkey365",
+          "title": "silverhack/monkey365: Open-source security assessment tool for Microsoft 365, Azure, and Entra ID",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/topics/microsoft365",
+          "title": "microsoft365 Topic - GitHub",
+          "type": "autre",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "EntraTrace : cartographie comportementale et détection de l'outillage offensif Entra ID",
+      "tag": "Défensif / blue team",
+      "summary": "EntraTrace est un projet défensif communautaire documentant le comportement observable et les traces télémétriques générées par les outils offensifs ciblant Microsoft Entra ID (tels que ROADtools/roadtx, AADInternals, AzureHound ou O365Enum). Récemment partagé et documenté au sein de la communauté de sécurité, ce projet compile les modèles d'appels API, les en-têtes et les attributs d'objets modifiés lors d'attaques cloud. Il constitue un accélérateur précieux pour les équipes de détection et les consultants SOC devant formaliser des règles de hunting pertinentes.",
+      "note": "EntraTrace permet de bâtir des règles de détection KQL dans Microsoft Sentinel ciblant notamment les versions spécifiques d'OS déclarées par défaut lors de faux enregistrements d'appareils ou les User-Agents anormaux dans les tables SigninLogs et NonInteractiveUserSignInLogs.",
+      "sources": [
+        {
+          "url": "https://github.com/dirkjanm/ROADtools",
+          "title": "ROADtools - Collection of Azure AD/Entra tools for security purposes",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "AgrusScanner v1.0 : utilitaire Windows pour la découverte réseau et l'inventaire du Shadow AI",
+      "tag": "Logiciel PC",
+      "summary": "AgrusScanner, conçu par l'éditeur JPFTech (projet NYBaywatch), a franchi le cap de sa version 1.0 stable fin septembre / début octobre 2026. Ce logiciel Windows avec interface WPF propose une solution portable pour cartographier un segment local, identifier les ports ouverts et reconnaître spécifiquement les services d'IA non déclarés (serveurs LLM locaux comme Ollama, clusters GPU, frameworks d'agents et serveurs de protocoles MCP). Le projet s'appuie désormais sur un flux de signatures signées pour classifier de manière fiable ces services émergents sur les postes et serveurs de l'entreprise.",
+      "note": "Sur les postes d'entreprise supervisés par Microsoft Defender for Endpoint, l'usage d'AgrusScanner peut être repéré par des alertes de type balayage réseau local (Network Port Scanning / Host Discovery) s'il n'est pas exécuté dans le cadre d'un compte d'administration autorisé.",
+      "sources": [
+        {
+          "url": "https://github.com/NYBaywatch/AgrusScanner",
+          "title": "NYBaywatch/AgrusScanner: Windows network scanner that finds AI/ML services and MCP servers",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/topics/network-scanner",
+          "title": "network-scanner Topic - GitHub",
+          "type": "autre",
+          "domain": "github.com"
+        }
+      ]
+    }
+  ]
+}

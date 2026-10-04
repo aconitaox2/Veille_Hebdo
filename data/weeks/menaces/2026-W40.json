@@ -1,0 +1,20 @@
+{
+  "week": "2026-W40",
+  "date": "2026-10-04",
+  "items": [
+    {
+      "title": "Exploitation active de la faille RCE SharePoint CVE-2026-65660 et attaques du ransomware Warlock en Europe",
+      "tag": "SharePoint",
+      "summary": "La vulnérabilité CVE-2026-65660 (CVSS 8.8, injection de code conduisant à une exécution de code à distance) affectant SharePoint Server a été intégrée au catalogue CISA KEV suite à des attaques avérées. Dans le même temps, un rapport de Symantec publié cette semaine documente des cyberattaques en cours menées par le groupe lié au ransomware Warlock contre des infrastructures critiques et universités en Europe (notamment en Espagne et au Portugal), ciblant spécifiquement des déploiements SharePoint non corrigés.",
+      "note": "Appliquez d'urgence le correctif KB5002905 sur l'ensemble des fermes SharePoint Server sur site et isolez les serveurs d'Internet derrière un WAF/Reverse Proxy L7 avec inspection TLS et intégration AMSI active. Pour détecter les processus anormaux enfants d'IIS, utilisez la requête KQL : DeviceProcessEvents | where ProcessCommandLine has_any (\"w3wp.exe\", \"OWSTIMER.EXE\") and FileName in~ (\"cmd.exe\", \"powershell.exe\", \"certutil.exe\").",
+      "sources": [
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "title": "Known Exploited Vulnerabilities Catalog - CISA",
+          "type": "officielle",
+          "domain": "cisa.gov"
+        }
+      ]
+    }
+  ]
+}

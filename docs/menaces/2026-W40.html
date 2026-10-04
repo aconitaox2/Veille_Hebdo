@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Attaques et menaces – 2026-W40 · Veille cyber &amp; Microsoft 365</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Veille cyber &amp; Microsoft 365</a>
+    <nav>
+      <a href="../index.html" >Accueil</a>
+      <a href="../microsoft/index.html" >Nouveautés Microsoft</a><a href="../menaces/index.html" class="on">Attaques et menaces</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<p class="crumb"><a href="index.html">Attaques et menaces</a> / Semaine 40</p>
+<h1>Attaques et menaces <span class="muted">· semaine 40</span></h1>
+
+<article class="item">
+  <span class="tag">SharePoint</span>
+  <h3>Exploitation active de la faille RCE SharePoint CVE-2026-65660 et attaques du ransomware Warlock en Europe</h3>
+  <p>La vulnérabilité CVE-2026-65660 (CVSS 8.8, injection de code conduisant à une exécution de code à distance) affectant SharePoint Server a été intégrée au catalogue CISA KEV suite à des attaques avérées. Dans le même temps, un rapport de Symantec publié cette semaine documente des cyberattaques en cours menées par le groupe lié au ransomware Warlock contre des infrastructures critiques et universités en Europe (notamment en Espagne et au Portugal), ciblant spécifiquement des déploiements SharePoint non corrigés.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Appliquez d&#39;urgence le correctif KB5002905 sur l&#39;ensemble des fermes SharePoint Server sur site et isolez les serveurs d&#39;Internet derrière un WAF/Reverse Proxy L7 avec inspection TLS et intégration AMSI active. Pour détecter les processus anormaux enfants d&#39;IIS, utilisez la requête KQL : DeviceProcessEvents | where ProcessCommandLine has_any (&#34;w3wp.exe&#34;, &#34;OWSTIMER.EXE&#34;) and FileName in~ (&#34;cmd.exe&#34;, &#34;powershell.exe&#34;, &#34;certutil.exe&#34;).</div>
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer nofollow">Known Exploited Vulnerabilities Catalog - CISA</a><span class="dom">cisa.gov</span></li>
+  </ul>
+</article>
+</main>
+<footer class="wrap foot">Récaps générés par IA à partir des sources citées. Mise à jour chaque dimanche.</footer>
+
+</body>
+</html>

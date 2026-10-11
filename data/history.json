@@ -53,5 +53,75 @@
     "section": "outils",
     "week": "2026-W40",
     "title": "AgrusScanner v1.0 : utilitaire Windows pour la découverte réseau et l'inventaire du Shadow AI"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W41",
+    "title": "Préversion publique de la suppression réversible et de la restauration des stratégies d'accès conditionnel et des emplacements nommés"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W41",
+    "title": "Prise en charge des adresses IPv6 dans la liste d'autorisation et de blocage du locataire (Tenant Allow/Block List)"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W41",
+    "title": "Durcissement du rapprochement d'identités (Hard Match) et verrouillage de l'attribut OnPremisesObjectIdentifier"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W41",
+    "title": "Disponibilité générale des autorisations Microsoft Graph granulaires pour UserAuthenticationMethod"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W41",
+    "title": "Révision du cycle de vie Android : exigence minimale d'Android 10 et politique des quatre versions majeures"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W41",
+    "title": "Alerte CERT-FR sur une faille d'élévation de privilèges dans Microsoft Exchange Server (CVE-2026-96940)"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W41",
+    "title": "Avis CERT-FR : Risque d'exécution de code arbitraire à distance dans Microsoft 365 Apps (CVE-2026-100208)"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W41",
+    "title": "Industrialisation du vol de jetons par Device Code Phishing via le kit EvilTokens (Storm-2992)"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W41",
+    "title": "Alerte conjointe CISA / FBI : Password spraying et ciblage d'infrastructures hybrides Microsoft"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W41",
+    "title": "Oblivion Token : outil d'évaluation offensive des politiques d'accès conditionnel M365"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W41",
+    "title": "SpecterOps BloodHound CE v9.8.0 : affinage de la cartographie des chemins d'attaque hybrides et Entra ID"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W41",
+    "title": "CA Policy Analyzer : audit de configuration et détection des angles morts d'accès conditionnel"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W41",
+    "title": "TenuVault Desktop : utilitaire local de sauvegarde, restauration et détection de dérive pour Intune"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W41",
+    "title": "SOCFortress UBA Deploy : moteur d'analyse comportementale orienté identité pour Wazuh et environnements Microsoft"
   }
 ]

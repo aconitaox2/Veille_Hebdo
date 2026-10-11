@@ -1,0 +1,76 @@
+{
+  "week": "2026-W41",
+  "date": "2026-10-11",
+  "items": [
+    {
+      "title": "Oblivion Token : outil d'évaluation offensive des politiques d'accès conditionnel M365",
+      "tag": "Offensif / pentest",
+      "summary": "Présenté par le chercheur en sécurité Waris Damkham (Waariss) lors de salons récents dont Black Hat Asia Arsenal et DEF CON Demo Labs, Oblivion Token est un utilitaire offensif ciblant spécifiquement Microsoft 365. L'outil automatise et orchestre des flux de jetons OAuth2/OIDC afin d'éprouver et de contourner les règles d'Accès Conditionnel (CAP), en exploitant notamment les identifiants d'applications propriétaires Microsoft et la falsification de signaux contextuels (empreintes de navigateurs et User-Agents). Le projet, très actif et suivi dans la communauté offensive cloud, permet une intégration directe avec les appels d'API Microsoft Graph pour tester la robustesse des périmètres Zero Trust.",
+      "note": "L'activité d'Oblivion Token peut être repérée dans les journaux de connexion Entra ID (Sign-in logs) via la divergence entre l'application cliente déclarée (ex. applications Microsoft natives FOCI) et les en-têtes User-Agent réels, ainsi que par des séquences anormales de requêtes de jetons d'accès ciblant les points de terminaison OAuth2/Graph sans conformité d'appareil.",
+      "sources": [
+        {
+          "url": "https://github.com/Waariss/OblivionToken",
+          "title": "Dépôt GitHub - Waariss/OblivionToken",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "SpecterOps BloodHound CE v9.8.0 : affinage de la cartographie des chemins d'attaque hybrides et Entra ID",
+      "tag": "Offensif / pentest",
+      "summary": "L'éditeur SpecterOps a publié la version 9.8.0 de BloodHound Community Edition (BHCE), son outil incontournable de modélisation graphique des chemins d'attaque. Actif et maintenu depuis plus de huit ans, le framework bénéficie dans cette version de résolutions d'entités plus précises pour l'architecture OpenGraph, de corrections sur la gestion des ACL et des conteneurs, ainsi que de montées en version de ses collecteurs. Cet outil demeure un standard de l'industrie pour auditer ou exploiter les escalades de privilèges transverses entre Active Directory et Microsoft Entra ID.",
+      "note": "L'utilisation des collecteurs associés (AzureHound / OpenHound) se détecte par un volume soudain et massif de requêtes d'énumération en lecture sur l'API Microsoft Graph (interrogation systématique des rôles d'annuaire, principaux de service et appartenances aux groupes) visible dans les journaux de diagnostic et Microsoft Sentinel.",
+      "sources": [
+        {
+          "url": "https://github.com/SpecterOps/BloodHound",
+          "title": "Dépôt GitHub - SpecterOps/BloodHound",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "CA Policy Analyzer : audit de configuration et détection des angles morts d'accès conditionnel",
+      "tag": "Défensif / blue team",
+      "summary": "Conçu par Jon Hope, MVP Microsoft Security spécialisé dans les architectures d'identité, CA Policy Analyzer est un outil d'audit gratuit évaluant la posture des stratégies d'Accès Conditionnel Entra ID. Il exécute plus de cinquante vérifications automatisées, confronte l'environnement au CIS Microsoft 365 Foundations Benchmark v7.0.0 et signale les faiblesses critiques telles que les risques liés aux jetons FOCI, les exclusions orphelines ou les contournements de l'enregistrement d'appareils. Exécutable directement dans le navigateur ou en mode déconnecté via export PowerShell, le projet offre un gage de confidentialité en traitant les données en local sans exfiltration.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://github.com/Jhope188/ca-policy-analyzer",
+          "title": "Dépôt GitHub - Jhope188/ca-policy-analyzer",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "TenuVault Desktop : utilitaire local de sauvegarde, restauration et détection de dérive pour Intune",
+      "tag": "Logiciel PC",
+      "summary": "Développé par le spécialiste Microsoft Intune Ugur Koc, TenuVault a franchi une étape majeure avec la publication d'une application de bureau autonome pour Windows et macOS. Anciennement proposé sous forme de script PowerShell et de portail hébergé, ce logiciel PC permet aux administrateurs de sauvegarder, restaurer et comparer (drift detection) les profils du catalogue de paramètres Intune, les stratégies de conformité et les baselines OpenIntuneBaseline. L'application stocke les sauvegardes localement ou sur un compte Azure Storage privé, répondant ainsi aux exigences de sécurité des environnements restreignant l'usage d'outils web tiers.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://github.com/ugurkocde/TenuVault",
+          "title": "Dépôt GitHub - ugurkocde/TenuVault",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "SOCFortress UBA Deploy : moteur d'analyse comportementale orienté identité pour Wazuh et environnements Microsoft",
+      "tag": "Défensif / blue team",
+      "summary": "L'éditeur américain SOCFortress a mis à disposition son dépôt de déploiement socfortress-uba-deploy, fournissant une pile conteneurisée d'analyse comportementale des utilisateurs (UBA) intégrée à Wazuh et CoPilot. Conçue pour simplifier la détection pour les équipes blue team et les MSSP, cette solution agrège les événements disparates survenus sur les postes de travail Windows et les identités Microsoft 365 pour calculer un score de risque contextuel par compte utilisateur. Cette approche évite la saturation d'alertes isolées en reliant entre elles des actions suspectes successives comme la création de compte, l'élévation de privilèges ou le verrouillage répété.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://github.com/socfortress/socfortress-uba-deploy",
+          "title": "Dépôt GitHub - socfortress/socfortress-uba-deploy",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "week": "2026-W41",
+  "date": "2026-10-11",
+  "items": [
+    {
+      "title": "Alerte CERT-FR sur une faille d'élévation de privilèges dans Microsoft Exchange Server (CVE-2026-96940)",
+      "tag": "Exchange Online",
+      "summary": "Le CERT-FR a émis le 5 octobre 2026 l'avis CERTFR-2026-AVI-1258 concernant une vulnérabilité critique d'élévation de privilèges affectant Microsoft Exchange Server (éditions 2016, 2019 et Subscription Edition). Un défaut d'autorisation permet à un attaquant distant authentifié sur le réseau d'accéder sans droit aux boîtes aux lettres d'autres utilisateurs du même tenant ou de l'organisation. Si Exchange Online intègre le correctif côté cloud sans action requise, les passerelles et infrastructures hybrides exposées restent particulièrement ciblées pour du vol de correspondance sensible.",
+      "note": "Pour vous protéger, appliquez immédiatement les correctifs cumulatifs sur vos serveurs Exchange hybrides et surveillez les attributions anormales de permissions avec la requête KQL : AuditLogs | where OperationName in ('Add-MailboxPermission', 'Add-RecipientPermission') | project TimeGenerated, InitiatedBy, TargetResources, Result.",
+      "sources": [
+        {
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1258/",
+          "title": "Vulnérabilité dans Microsoft Exchange Server - CERT-FR",
+          "type": "officielle",
+          "domain": "cert.ssi.gouv.fr"
+        },
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96940",
+          "title": "Microsoft Security Update Guide - CVE-2026-96940",
+          "type": "officielle",
+          "domain": "msrc.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Avis CERT-FR : Risque d'exécution de code arbitraire à distance dans Microsoft 365 Apps (CVE-2026-100208)",
+      "tag": "Defender for Endpoint",
+      "summary": "Publié le 6 octobre 2026 par l'ANSSI (CERTFR-2026-AVI-1266), cet avis traite d'une faille critique de type RCE (Remote Code Execution) au sein de la suite bureautique Microsoft Office et de Microsoft 365 Apps pour entreprise (32 et 64 bits). La vulnérabilité peut être déclenchée via l'ouverture ou la prévisualisation d'un fichier bureautique spécialement forgé distribué par hameçonnage. Les attaquants exploitent fréquemment ces failles de format pour déposer des implants et exécuter du code dans le contexte de session de l'utilisateur.",
+      "note": "Activez les règles ASR (Attack Surface Reduction) de Defender for Endpoint interdisant la création de processus enfants par les applications Office ('Block all Office applications from creating child processes'). Détectez les anomalies avec la requête KQL : DeviceProcessEvents | where InitiatingProcessFileName in~ ('winword.exe', 'excel.exe', 'powerpnt.exe') and FileName in~ ('powershell.exe', 'cmd.exe', 'wscript.exe', 'cscript.exe').",
+      "sources": [
+        {
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1266/",
+          "title": "Vulnérabilité dans Microsoft Office - CERT-FR",
+          "type": "officielle",
+          "domain": "cert.ssi.gouv.fr"
+        },
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-100208",
+          "title": "Microsoft Security Update Guide - CVE-2026-100208",
+          "type": "officielle",
+          "domain": "msrc.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Industrialisation du vol de jetons par Device Code Phishing via le kit EvilTokens (Storm-2992)",
+      "tag": "Entra ID",
+      "summary": "À la suite des opérations de neutralisation récentes, les rapports techniques publiés cette première semaine d'octobre 2026 détaillent l'ampleur des campagnes menées par Storm-2992 via le kit EvilTokens, responsable du piratage de plus de 12 000 boîtes Microsoft 365. Cette plateforme automatise le phishing ciblant le protocole OAuth 2.0 Device Authorization Flow (RFC 8628), détournant un mécanisme légitime pour obtenir des jetons d'accès et d'actualisation sans intercepter les identifiants initiaux. Les attaquants utilisent ensuite des agents IA pour fouiller les boîtes compromises et persister via de faux enregistrements d'appareils.",
+      "note": "Configurez une stratégie d'accès conditionnel (Entra Conditional Access) bloquant le flux d'authentification par code d'appareil ('Device code flow') pour l'ensemble des utilisateurs bureautiques. Pour détecter les tentatives, exécutez la requête KQL : SigninLogs | where AuthenticationProcessingDetails has 'DeviceCode' | project TimeGenerated, UserPrincipalName, AppDisplayName, IPAddress, Location, Status.",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/22/unmasking-eviltokens-getting-to-the-root-of-device-code-phishing/",
+          "title": "Unmasking EvilTokens: Getting to the root of device code phishing - Microsoft Security Blog",
+          "type": "officielle",
+          "domain": "microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Alerte conjointe CISA / FBI : Password spraying et ciblage d'infrastructures hybrides Microsoft",
+      "tag": "Defender for Identity",
+      "summary": "Dans un avis conjoint publié le 8 octobre 2026 (AA26-281A), la CISA, le FBI et la NSA alertent sur des campagnes menées par des groupes APT ciblant les organisations gouvernementales et stratégiques. Les acteurs étatiques combinent des attaques massives par pulvérisation de mots de passe (password spraying) contre Microsoft Exchange et les passerelles hybrides, suivies de tentatives de réplication non autorisée de l'Active Directory (DCSync) et de vols de messageries d'entreprises. Ces techniques cherchent à compromettre la synchronisation d'identité entre l'annuaire local et Entra ID.",
+      "note": "Activez les capteurs Microsoft Defender for Identity sur tous les contrôleurs de domaine pour intercepter les alertes de réplication suspecte de compte (DCSync/DRSUAPI) et désactivez l'authentification héritée via Conditional Access. Détectez les patterns de password spray avec la requête KQL : IdentityLogonEvents | where ActionType == 'LogonFailed' and FailureReason == 'InvalidPassword' | summarize FailedAttempts = count(), Targets = dcount(AccountName) by bin(TimeGenerated, 15m), IPAddress | where Targets > 10.",
+      "sources": [
+        {
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+          "title": "CISA Cybersecurity Advisories Overview",
+          "type": "officielle",
+          "domain": "cisa.gov"
+        },
+        {
+          "url": "https://www.cert.ssi.gouv.fr/",
+          "title": "Avis et alertes d'actualité de l'ANSSI - CERT-FR",
+          "type": "officielle",
+          "domain": "cert.ssi.gouv.fr"
+        }
+      ]
+    }
+  ]
+}

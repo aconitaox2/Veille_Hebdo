@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Nouveautés Microsoft – 2026-W41 · Veille cyber &amp; Microsoft 365</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Veille cyber &amp; Microsoft 365</a>
+    <nav>
+      <a href="../index.html" >Accueil</a>
+      <a href="../microsoft/index.html" class="on">Nouveautés Microsoft</a><a href="../menaces/index.html" >Attaques et menaces</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<p class="crumb"><a href="index.html">Nouveautés Microsoft</a> / Semaine 41</p>
+<h1>Nouveautés Microsoft <span class="muted">· semaine 41</span></h1>
+
+<article class="item">
+  <span class="tag">Conditional Access</span>
+  <h3>Préversion publique de la suppression réversible et de la restauration des stratégies d&#39;accès conditionnel et des emplacements nommés</h3>
+  <p>Microsoft déploie en préversion publique la suppression réversible (soft delete) et la restauration des stratégies d&#39;accès conditionnel ainsi que des emplacements nommés dans Entra ID. Les objets supprimés sont désormais conservés pendant 30 jours et peuvent être restaurés dans leur état exact via le portail ou l&#39;API Microsoft Graph (bêta). Pour un consultant, cela élimine le risque critique de rupture d&#39;accès ou d&#39;exposition de sécurité suite à une fausse manipulation ou une action malveillante. Il convient de tester la procédure de restauration sur un tenant de test et de vérifier les entrées associées dans les journaux d&#39;audit Entra.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/entra/identity/conditional-access/plan-conditional-access" target="_blank" rel="noopener noreferrer nofollow">Plan Your Microsoft Entra Conditional Access Deployment</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Defender for Office 365</span>
+  <h3>Prise en charge des adresses IPv6 dans la liste d&#39;autorisation et de blocage du locataire (Tenant Allow/Block List)</h3>
+  <p>Microsoft Defender for Office 365 et Exchange Online Protection prennent désormais en charge l&#39;ajout d&#39;adresses et de plages IPv6 directement au sein de la liste d&#39;autorisation et de blocage du locataire (TABL). Cette évolution accompagne le déploiement généralisé d&#39;IPv6 sur les domaines acceptés d&#39;Exchange Online pour la réception de courriels. Pour le consultant, cela évite de devoir contourner le filtrage antispam via des règles de flux de messagerie (Exchange Transport Rules) complexes pour le trafic IPv6. Il est conseillé de vérifier la conformité des règles d&#39;exclusion IP existantes et de tester l&#39;ajout d&#39;adresses IPv6 sensibles dans le portail Defender XDR.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/defender-office-365/tenant-allow-block-list-ip-addresses-configure" target="_blank" rel="noopener noreferrer nofollow">Allow or block IPv6 addresses using the Tenant Allow/Block List - Microsoft Defender for Office 365</a><span class="dom">learn.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=09213cdc-9f30-4e82-aa6f-9b6e8d82dab3&amp;redirect_uri=https%3A%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fs%2Fauth%2Foauth2callback%2Fproviderid%2Fdefault&amp;response_type=code&amp;state=Mb9ZURd3z7FHQ9ew8bjDLcvmcMbZmLJ7zdId6R0louScPozB_PbNvbg8YVcQaLpLosmjHh-9OeBI4xfVXOPivQ5WkbEc7JImUhA3iq8OSVdY9Q14DCWfMv1enOrMXtrDtpPbbdQD_VCk6GXT_WKZtybp-79_2XSIyu1ivw9Ko0JKdufsLmWMJpjDZvCK93j9YL0zIM4ttm2Dvp8vOcDIJg&amp;scope=User.Read+openid+email+profile+offline_access&amp;referer=https%3A%2F%2Ftechcommunity.microsoft.com%2Fcategory%2Fcommunities%2Fdiscussions%2Fsecurityandcompliance" target="_blank" rel="noopener noreferrer nofollow">Microsoft Community Hub - Security and Compliance</a><span class="dom">login.microsoftonline.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Entra ID</span>
+  <h3>Durcissement du rapprochement d&#39;identités (Hard Match) et verrouillage de l&#39;attribut OnPremisesObjectIdentifier</h3>
+  <p>Microsoft renforce la sécurité des identités hybrides en bloquant les modifications par Entra Connect de l&#39;attribut OnPremisesObjectIdentifier dès lors qu&#39;il a déjà été associé à un objet utilisateur cloud. Ce durcissement neutralise les attaques par usurpation de compte consistant à réassigner un compte cloud existant vers un objet Active Directory local malveillant. Pour le consultant gérant la synchronisation, toute reconfiguration d&#39;ancrage légitime requiert désormais la suppression préalable de la valeur via Microsoft Graph avec le rôle Hybrid Identity Administrator et les permissions dédiées. Il est nécessaire de contrôler les rapports d&#39;erreurs de synchronisation Entra Connect Health.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-sync-service-manager-ui-connectors" target="_blank" rel="noopener noreferrer nofollow">Microsoft Entra Connect Sync: Manage identity matching</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Entra ID</span>
+  <h3>Disponibilité générale des autorisations Microsoft Graph granulaires pour UserAuthenticationMethod</h3>
+  <p>Microsoft passe en disponibilité générale une suite d&#39;autorisations Microsoft Graph granulaires basées sur le moindre privilège pour les API UserAuthenticationMethod. Au lieu d&#39;exiger le privilège global UserAuthenticationMethod.ReadWrite.All, les applications et automatisations peuvent désormais être restreintes par méthode d&#39;authentification spécifique (ex. UserAuthMethod-Phone, UserAuthMethod-TAP, UserAuthMethod-Email). Pour un consultant, cette mesure réduit considérablement le risque d&#39;escalade de privilèges en cas de fuite d&#39;un secret d&#39;application ITSM ou Helpdesk. Il faut auditer les enregistrements d&#39;applications existants et remplacer les droits globaux par des autorisations ciblées.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/graph/permissions-reference" target="_blank" rel="noopener noreferrer nofollow">Microsoft Graph permissions reference</a><span class="dom">learn.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/graph/api/resources/authenticationmethods-overview?view=graph-rest-1.0" target="_blank" rel="noopener noreferrer nofollow">Authentication methods API overview - Microsoft Graph</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Intune</span>
+  <h3>Révision du cycle de vie Android : exigence minimale d&#39;Android 10 et politique des quatre versions majeures</h3>
+  <p>Microsoft Intune applique la fin de support pour les versions d&#39;Android antérieures à la version 10 pour l&#39;ensemble des modes d&#39;enrôlement basés sur l&#39;utilisateur (Android Enterprise BYOD et d&#39;entreprise, mode entièrement géré, AOSP et stratégies MAM App Protection). Microsoft formalise également sa politique de cycle de vie consistant à ne maintenir que les quatre dernières versions majeures de l&#39;OS. Pour un consultant, les appareils sous Android 9 ou antérieur ne recevront plus de mises à jour de l&#39;application Portail d&#39;entreprise et échoueront aux règles de conformité. Il convient d&#39;extraire la liste des terminaux obsolètes dans Intune et de mettre à jour les stratégies de conformité et de restriction d&#39;appareils.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/intune/whats-new/" target="_blank" rel="noopener noreferrer nofollow">What&#39;s new in Microsoft Intune</a><span class="dom">learn.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/blog/microsoftintuneblog/whats-new-in-microsoft-intune-october-2024/4273353" target="_blank" rel="noopener noreferrer nofollow">What&#39;s new in Microsoft Intune October 2024 - Microsoft Tech Community</a><span class="dom">techcommunity.microsoft.com</span></li>
+  </ul>
+</article>
+</main>
+<footer class="wrap foot">Récaps générés par IA à partir des sources citées. Mise à jour chaque dimanche.</footer>
+
+</body>
+</html>

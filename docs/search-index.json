@@ -1,5 +1,45 @@
 [
   {
+    "t": "Préversion publique de la suppression réversible et de la restauration des stratégies d'accès conditionnel et des emplacements nommés",
+    "s": "Microsoft déploie en préversion publique la suppression réversible (soft delete) et la restauration des stratégies d'accès conditionnel ainsi que des emplacements nommés dans Entra ID. Les objets supprimés sont désormais conservés pendant 30 jours et peuvent être restaurés dans leur état exact via l",
+    "g": "Conditional Access",
+    "w": "2026-W41",
+    "u": "microsoft/2026-W41.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Prise en charge des adresses IPv6 dans la liste d'autorisation et de blocage du locataire (Tenant Allow/Block List)",
+    "s": "Microsoft Defender for Office 365 et Exchange Online Protection prennent désormais en charge l'ajout d'adresses et de plages IPv6 directement au sein de la liste d'autorisation et de blocage du locataire (TABL). Cette évolution accompagne le déploiement généralisé d'IPv6 sur les domaines acceptés d'",
+    "g": "Defender for Office 365",
+    "w": "2026-W41",
+    "u": "microsoft/2026-W41.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Durcissement du rapprochement d'identités (Hard Match) et verrouillage de l'attribut OnPremisesObjectIdentifier",
+    "s": "Microsoft renforce la sécurité des identités hybrides en bloquant les modifications par Entra Connect de l'attribut OnPremisesObjectIdentifier dès lors qu'il a déjà été associé à un objet utilisateur cloud. Ce durcissement neutralise les attaques par usurpation de compte consistant à réassigner un c",
+    "g": "Entra ID",
+    "w": "2026-W41",
+    "u": "microsoft/2026-W41.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Disponibilité générale des autorisations Microsoft Graph granulaires pour UserAuthenticationMethod",
+    "s": "Microsoft passe en disponibilité générale une suite d'autorisations Microsoft Graph granulaires basées sur le moindre privilège pour les API UserAuthenticationMethod. Au lieu d'exiger le privilège global UserAuthenticationMethod.ReadWrite.All, les applications et automatisations peuvent désormais êt",
+    "g": "Entra ID",
+    "w": "2026-W41",
+    "u": "microsoft/2026-W41.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Révision du cycle de vie Android : exigence minimale d'Android 10 et politique des quatre versions majeures",
+    "s": "Microsoft Intune applique la fin de support pour les versions d'Android antérieures à la version 10 pour l'ensemble des modes d'enrôlement basés sur l'utilisateur (Android Enterprise BYOD et d'entreprise, mode entièrement géré, AOSP et stratégies MAM App Protection). Microsoft formalise également sa",
+    "g": "Intune",
+    "w": "2026-W41",
+    "u": "microsoft/2026-W41.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
     "t": "Support des clés d'accès (passkeys) des IdP tiers pour les applications Microsoft sur mobile et macOS",
     "s": "Microsoft étend l'utilisation des passkeys (FIDO2) et clés de sécurité matérielles gérées par des fournisseurs d'identité externes (SAML 2.0 / WS-Fed) aux applications natives Microsoft (Teams, Outlook, OneDrive, etc.) sur Android, iOS et macOS managé. L'authentification bascule désormais vers le na",
     "g": "Entra ID",
@@ -38,6 +78,38 @@
     "w": "2026-W40",
     "u": "microsoft/2026-W40.html",
     "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Alerte CERT-FR sur une faille d'élévation de privilèges dans Microsoft Exchange Server (CVE-2026-96940)",
+    "s": "Le CERT-FR a émis le 5 octobre 2026 l'avis CERTFR-2026-AVI-1258 concernant une vulnérabilité critique d'élévation de privilèges affectant Microsoft Exchange Server (éditions 2016, 2019 et Subscription Edition). Un défaut d'autorisation permet à un attaquant distant authentifié sur le réseau d'accéde",
+    "g": "Exchange Online",
+    "w": "2026-W41",
+    "u": "menaces/2026-W41.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Avis CERT-FR : Risque d'exécution de code arbitraire à distance dans Microsoft 365 Apps (CVE-2026-100208)",
+    "s": "Publié le 6 octobre 2026 par l'ANSSI (CERTFR-2026-AVI-1266), cet avis traite d'une faille critique de type RCE (Remote Code Execution) au sein de la suite bureautique Microsoft Office et de Microsoft 365 Apps pour entreprise (32 et 64 bits). La vulnérabilité peut être déclenchée via l'ouverture ou l",
+    "g": "Defender for Endpoint",
+    "w": "2026-W41",
+    "u": "menaces/2026-W41.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Industrialisation du vol de jetons par Device Code Phishing via le kit EvilTokens (Storm-2992)",
+    "s": "À la suite des opérations de neutralisation récentes, les rapports techniques publiés cette première semaine d'octobre 2026 détaillent l'ampleur des campagnes menées par Storm-2992 via le kit EvilTokens, responsable du piratage de plus de 12 000 boîtes Microsoft 365. Cette plateforme automatise le p",
+    "g": "Entra ID",
+    "w": "2026-W41",
+    "u": "menaces/2026-W41.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Alerte conjointe CISA / FBI : Password spraying et ciblage d'infrastructures hybrides Microsoft",
+    "s": "Dans un avis conjoint publié le 8 octobre 2026 (AA26-281A), la CISA, le FBI et la NSA alertent sur des campagnes menées par des groupes APT ciblant les organisations gouvernementales et stratégiques. Les acteurs étatiques combinent des attaques massives par pulvérisation de mots de passe (password s",
+    "g": "Defender for Identity",
+    "w": "2026-W41",
+    "u": "menaces/2026-W41.html",
+    "sec": "Attaques et menaces"
   },
   {
     "t": "Exploitation active de la faille RCE SharePoint CVE-2026-65660 et attaques du ransomware Warlock en Europe",

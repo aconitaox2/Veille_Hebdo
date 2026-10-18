@@ -1,0 +1,68 @@
+{
+  "week": "2026-W42",
+  "date": "2026-10-18",
+  "items": [
+    {
+      "title": "Exploitation active du zero-day Windows Shell CVE-2026-96951 contournant Mark of the Web",
+      "tag": "Defender for Endpoint",
+      "summary": "Microsoft a corrigé lors du Patch Tuesday du 13 octobre 2026 une vulnérabilité zero-day activement exploitée (CVE-2026-96951, CVSS 8.8) affectant Windows Shell. Cette faille d'injection de commandes permet à des attaquants distants d'outrepasser les avertissements de sécurité Mark of the Web (MOTW) via des fichiers malveillants forgés. Face aux attaques en cours, la CISA a intégré d'urgence la faille à son catalogue KEV le jour même, imposant une remédiation immédiate sous BOD 26-04.",
+      "note": "Déployer en priorité absolue les mises à jour cumulatives d'octobre 2026 (KB5126868/KB5126651). Dans Microsoft Defender for Endpoint, surveiller le contournement MOTW et les processus enfants suspects nés de fichiers récemment téléchargés à l'aide de la requête KQL : DeviceFileEvents | where ActionType == 'FileCreated' and AdditionalFields has 'ZoneIdentifier' | join kind=inner (DeviceProcessEvents) on DeviceId, FileName.",
+      "sources": [
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+          "type": "officielle",
+          "domain": "cisa.gov"
+        },
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96951",
+          "title": "Microsoft Security Update Guide - CVE-2026-96951",
+          "type": "officielle",
+          "domain": "msrc.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Multiples failles critiques RCE dans Microsoft Outlook déclenchables via le volet de lecture",
+      "tag": "Exchange Online",
+      "summary": "Le cycle de sécurité d'octobre 2026 corrige cinq vulnérabilités critiques d'exécution de code à distance (RCE) dans Microsoft Outlook, incluant CVE-2026-70242 et CVE-2026-70291 (CVSS 9.8). La menace est majeure en entreprise car le volet de prévisualisation (Reading Pane) sert de vecteur d'attaque direct. Un collaborateur ciblé par un courriel piégé peut déclencher l'exécution de code arbitraire sans interaction supplémentaire ni ouverture de pièce jointe.",
+      "note": "Configurer via Intune ou GPO la politique de messagerie forçant l'affichage des courriels externes en texte brut ('ReadAsPlain') ou désactiver temporairement le volet de lecture sur les postes sensibles. Dans Microsoft Defender for Office 365, activer Safe Attachments avec détonation dynamique et bloquer les extensions atypiques dans les règles de flux Exchange Online.",
+      "sources": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/releaseNote/2026-Oct",
+          "title": "Microsoft Security Update Guide - Release Notes October 2026",
+          "type": "officielle",
+          "domain": "msrc.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Zero-day .NET Framework CVE-2026-108398 permettant le contournement des stratégies WDAC",
+      "tag": "Intune",
+      "summary": "Une vulnérabilité zero-day publiquement divulguée, répertoriée sous l'identifiant CVE-2026-108398 (CVSS 8.8), affecte le .NET Framework à la suite d'une mauvaise gestion des chemins de recherche de bibliothèques (Untrusted Search Path). Un attaquant local authentifié peut l'exploiter pour contourner les restrictions imposées par Windows Defender Application Control (WDAC). Ce contournement réduit à néant les politiques de whitelisting déployées sur les flottes d'entreprise.",
+      "note": "Déployer sans délai le correctif KB5127690 du .NET Framework via les profils de mise à jour Microsoft Intune. En durcissement d'attente, auditer les droits en écriture sur les dossiers applicatifs locaux pour empêcher le détournement de DLL et superviser les événements WDAC avec la table DeviceEvents | where ActionType startswith 'AppControl'.",
+      "sources": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-108398",
+          "title": "MSRC - .NET Framework Security Feature Bypass Vulnerability CVE-2026-108398",
+          "type": "officielle",
+          "domain": "msrc.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Rejeu différé de jetons de session Microsoft 365 post-AiTM sans réauthentification MFA",
+      "tag": "Conditional Access",
+      "summary": "Les retours d'incident de la mi-octobre mettent en lumière des attaques où des proxys inverses AiTM dérobent les cookies de session Microsoft 365 (notamment ESTSAUTH), puis observent un temps de latence de plus de 20 heures avant de rejouer la session depuis des réseaux VPN ou IP résidentielles distinctes. Comme le jeton porte la preuve d'un MFA valide, aucune nouvelle invite n'est envoyée à l'utilisateur, ce qui permet la modification silencieuse des règles de redirection Exchange et la fraude financière.",
+      "note": "Déployer la fonctionnalité Token Protection (Token Binding) dans l'Accès conditionnel pour verrouiller cryptographiquement le jeton sur l'appareil authentifié, combinée à l'exigence d'un appareil conforme (Compliant Device). Détecter le rejeu multi-adresses d'une même session avec la requête KQL : SigninLogs | summarize IPCount = dcount(IPAddress), IPs = make_set(IPAddress) by UserPrincipalName, bin(TimeGenerated, 1d) | where IPCount > 3.",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection",
+          "title": "Microsoft Entra Token Protection in Conditional Access",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        }
+      ]
+    }
+  ]
+}

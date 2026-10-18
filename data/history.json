@@ -123,5 +123,65 @@
     "section": "outils",
     "week": "2026-W41",
     "title": "SOCFortress UBA Deploy : moteur d'analyse comportementale orienté identité pour Wazuh et environnements Microsoft"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W42",
+    "title": "Microsoft Defender for Endpoint : préversion publique pour les postes de travail Linux"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W42",
+    "title": "Microsoft Entra ID : extension d'Universal CAE aux signaux de révocation et de conformité des appareils"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W42",
+    "title": "Microsoft Defender for Endpoint : évaluation des vulnérabilités pour les applications du Microsoft Store (GA)"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W42",
+    "title": "Exploitation active du zero-day Windows Shell CVE-2026-96951 contournant Mark of the Web"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W42",
+    "title": "Multiples failles critiques RCE dans Microsoft Outlook déclenchables via le volet de lecture"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W42",
+    "title": "Zero-day .NET Framework CVE-2026-108398 permettant le contournement des stratégies WDAC"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W42",
+    "title": "Rejeu différé de jetons de session Microsoft 365 post-AiTM sans réauthentification MFA"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W42",
+    "title": "Maestro : abus de Microsoft Intune et Entra ID comme vecteur de déplacement latéral C2"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W42",
+    "title": "AzureADEnumeration : reconnaissance OSINT et énumération non authentifiée d'environnements Entra ID"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W42",
+    "title": "Cazadora : détection et chasse aux applications OAuth suspectes dans Microsoft 365"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W42",
+    "title": "SpecterBroker : extraction et déchiffrement des jetons d'authentification WAM et Token Broker sous Windows"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W42",
+    "title": "ConditionalAccessBaseline : référentiel structuré de politiques d'accès conditionnel Entra ID"
   }
 ]

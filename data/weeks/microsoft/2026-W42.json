@@ -1,0 +1,48 @@
+{
+  "week": "2026-W42",
+  "date": "2026-10-18",
+  "items": [
+    {
+      "title": "Microsoft Defender for Endpoint : préversion publique pour les postes de travail Linux",
+      "tag": "Defender for Endpoint",
+      "summary": "Microsoft étend les fonctionnalités complètes d'antivirus de nouvelle génération, d'EDR et de gestion des vulnérabilités (MDVM) aux postes de travail Linux des développeurs et ingénieurs. Le déploiement s'appuie sur le même agent unifié que pour les serveurs Linux, avec une détection automatique de la nature du terminal (station vs serveur) pour l'attribution des licences. Pour le consultant M365, cela permet d'intégrer les machines Linux à haute criticité dans la console XDR unifiée. Il convient de tester l'intégration sur une machine pilote, de vérifier la bonne catégorisation de la licence et de valider les actions de réponse rapide comme l'isolation réseau.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoftdefenderatpblog/secure-linux-desktops-with-microsoft-defender/4560822",
+          "title": "Secure Linux desktops with Microsoft Defender - Microsoft Tech Community",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Entra ID : extension d'Universal CAE aux signaux de révocation et de conformité des appareils",
+      "tag": "Entra ID",
+      "summary": "Universal Continuous Access Evaluation (Universal CAE) au sein de Global Secure Access prend désormais en charge des signaux étendus de révocation de terminaux en préversion publique. Dès qu'un appareil est désactivé, supprimé ou bascule en état non conforme dans Intune, l'accès aux ressources réseau et cloud protégées est révoqué en quasi-temps réel sans attendre l'expiration du jeton. Pour l'administrateur, cette mise à jour renforce considérablement la posture Zero Trust contre le vol ou le rejeu de tokens. Il est recommandé de tester la vitesse de rupture de session lors d'un basculement de conformité Intune sur des postes pilotes configurés avec Global Secure Access.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoft-entra-blog/what%E2%80%99s-new-in-microsoft-entra-october-2026/4556460",
+          "title": "What's new in Microsoft Entra: October 2026 - Microsoft Tech Community",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Defender for Endpoint : évaluation des vulnérabilités pour les applications du Microsoft Store (GA)",
+      "tag": "Defender for Endpoint",
+      "summary": "La gestion des vulnérabilités Microsoft Defender (MDVM) passe en disponibilité générale (GA) pour les applications installées via le Microsoft Store. Le moteur identifie désormais ces applications courantes, les intègre dans l'inventaire logiciel global et évalue automatiquement leurs CVE et failles de sécurité associées. Pour l'administrateur Modern Workplace, cela comble une zone d'ombre historique liée aux applications universelles Windows (UWP / MSIX du Store). Il est conseillé de vérifier l'inventaire logiciel dans le portail Defender XDR afin d'analyser l'impact sur le score d'exposition et de planifier les remédiations sur les applications Store obsolètes.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/category/microsoft-defender-for-endpoint/blog/microsoftdefenderatpblog",
+          "title": "Microsoft Defender for Endpoint Blog - Microsoft Community Hub",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        }
+      ]
+    }
+  ]
+}

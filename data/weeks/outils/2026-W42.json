@@ -1,0 +1,82 @@
+{
+  "week": "2026-W42",
+  "date": "2026-10-18",
+  "items": [
+    {
+      "title": "Maestro : abus de Microsoft Intune et Entra ID comme vecteur de déplacement latéral C2",
+      "tag": "Offensif / pentest",
+      "summary": "Développé par le chercheur Mayyhem et documenté par l'éditeur en sécurité SpecterOps, Maestro est un outil post-exploitation open source en C# conçu pour abuser des capacités de gestion d'Intune et d'Entra ID depuis un agent C2 sur un poste Windows compromis. Le projet tire parti de la session locale de l'opérateur pour communiquer avec l'API Microsoft Graph sans exiger la connaissance du mot de passe en clair, l'extraction de jetons PRT ou le franchissement interactif des politiques d'accès conditionnel. Il automatise l'exécution de scripts PowerShell via Proactive Remediations et l'envoi de requêtes Device Query pour pivoter vers d'autres terminaux managés de l'organisation.",
+      "note": "L'usage de Maestro se détecte sur le terminal par le lancement anormal de scripts PowerShell enfants du processus IntuneManagementExtension.exe, ainsi que dans les journaux d'audit Entra ID et Microsoft Intune via les opérations DeviceManagementConfiguration signalant l'enregistrement ou la modification inattendue de scripts de remédiation par un compte administrateur.",
+      "sources": [
+        {
+          "url": "https://github.com/Mayyhem/Maestro",
+          "title": "Dépôt officiel Maestro - Abusing Azure services over C2",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "AzureADEnumeration : reconnaissance OSINT et énumération non authentifiée d'environnements Entra ID",
+      "tag": "OSINT",
+      "summary": "Créé par le chercheur Logisek dans le cadre du projet EvilMist et diffusé largement auprès de la communauté en octobre 2026, AzureADEnumeration est un outil d'investigation externe permettant d'énumérer les informations d'un tenant Microsoft Entra ID sans aucune authentification. Le script interroge les points de terminaison publics, la configuration OpenID (.well-known/openid-configuration) et les variations de réponses d'erreur de login.microsoftonline.com pour valider l'existence de comptes utilisateurs et de configurations spécifiques comme le SSO Seamless. Ce composant régulièrement actualisé permet aux auditeurs et attaquants de structurer leurs dictionnaires de cibles avant toute opération de pulvérisation d'identifiants.",
+      "note": "Comme les requêtes ne transitent pas par une session authentifiée, elles ne génèrent pas d'événements de connexion classiques dans Entra ID. La détection s'effectue au niveau des passerelles WAF ou des journaux Exchange Autodiscover face aux pics anormaux de requêtes, et la surface d'exposition peut être réduite en durcissant les paramètres de réinitialisation de mot de passe en libre-service (SSPR).",
+      "sources": [
+        {
+          "url": "https://github.com/Logisek/EvilMist",
+          "title": "Dépôt GitHub Logisek/EvilMist",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "Cazadora : détection et chasse aux applications OAuth suspectes dans Microsoft 365",
+      "tag": "Défensif / blue team",
+      "summary": "Conçu par Matt Kiely (alias HuskyHacks, chercheur en sécurité chez Huntress Labs), Cazadora est un utilitaire de threat hunting open source en Python dédié à l'identification d'applications d'entreprise frauduleuses ou compromises au sein des tenants Microsoft 365. Fruit de recherches approfondies menées sur des milliers d'environnements clients, l'outil analyse l'annuaire via l'API Microsoft Graph afin de repérer les applications clandestines (Stealthware) et les outils légitimes abusés pour la persistance (Traitorware). Il applique des règles heuristiques ciblant les noms anormaux, les URI de redirection vers des boucles locales (localhost) et les permissions d'API à hauts privilèges (ex. Mail.Read, Files.Read.All).",
+      "note": "L'exécution de Cazadora génère des requêtes de lecture d'annuaire (Application.Read.All et ServicePrincipal.Read.All) consignées dans les Microsoft Graph Activity Logs. Sur le plan opérationnel, il constitue un levier rapide pour auditer les consentements utilisateurs et révoquer les applications tierces exploitées comme vecteurs de persistance post-compromission.",
+      "sources": [
+        {
+          "url": "https://github.com/HuskyHacks/cazadora",
+          "title": "Dépôt GitHub HuskyHacks/cazadora - M365 OAuth Hunting",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "SpecterBroker : extraction et déchiffrement des jetons d'authentification WAM et Token Broker sous Windows",
+      "tag": "Offensif / pentest",
+      "summary": "Développé en C# par le chercheur offensif R3alM0m1X82 (mainteneur de la suite d'outils SpecterPortal), SpecterBroker est un exécutable post-exploitation ciblant les sous-systèmes d'authentification de Windows. Actif sur GitHub, l'outil se focalise sur le Web Account Manager (WAM) et la base de cache du Token Broker (TBRes) pour extraire et déchiffrer sans privilèges administrateur les jetons d'accès, de rafraîchissement (PRT) et jetons NGC associés à Microsoft 365 et Entra ID. Les artefacts collectés sont automatiquement sérialisés en JSON afin d'être rejoués lors d'opérations d'accès aux services cloud sans déclencher de nouvelle étape d'authentification interactive.",
+      "note": "L'activité de SpecterBroker se trahit par l'accès aux répertoires de données utilisateurs sous AppData\\Local\\Microsoft\\TokenBroker et l'appel direct aux API DPAPI (CryptUnprotectData) par des exécutables non signés. L'activation de la protection des jetons liée au matériel (Token Protection) dans les politiques d'accès conditionnel bloque la réutilisation de ces artefacts en dehors du terminal d'origine.",
+      "sources": [
+        {
+          "url": "https://github.com/R3alM0m1X82/SpecterBroker",
+          "title": "Dépôt officiel SpecterBroker - Advanced Windows Token Extraction",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/R3alM0m1X82",
+          "title": "Profil GitHub de recherche offensive R3alM0m1X82",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "ConditionalAccessBaseline : référentiel structuré de politiques d'accès conditionnel Entra ID",
+      "tag": "Défensif / blue team",
+      "summary": "Maintenu par Joey Verlinden (consultant cloud et Microsoft MVP), le framework open source ConditionalAccessBaseline met à disposition des architectes et consultants M365 un ensemble standardisé de politiques d'accès conditionnel prêtes à l'emploi. Le projet repose sur une approche modulaire segmentée par personas (Administrateurs, Collaborateurs, Invités et Agents de service/IA), évitant les risques de verrouillage tout en assurant l'application stricte de l'authentification multifacteur résistante au phishing. Les évolutions récentes intègrent l'adaptation aux nouvelles exigences d'App Protection (MAM) et la gestion des identités de service.",
+      "note": "Les administrateurs doivent systématiquement déployer ces modèles en mode « Rapport seul » (Report-only) et vérifier la présence de comptes d'urgence (break-glass) exclus des politiques. L'évaluation continue de leur efficacité s'effectue via le classeur Insights and Reporting d'Entra ID pour prévenir toute rupture de connectivité métier non planifiée.",
+      "sources": [
+        {
+          "url": "https://github.com/j0eyv/ConditionalAccessBaseline",
+          "title": "Dépôt GitHub j0eyv/ConditionalAccessBaseline",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    }
+  ]
+}

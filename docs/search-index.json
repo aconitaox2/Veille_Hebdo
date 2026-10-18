@@ -1,5 +1,29 @@
 [
   {
+    "t": "Microsoft Defender for Endpoint : préversion publique pour les postes de travail Linux",
+    "s": "Microsoft étend les fonctionnalités complètes d'antivirus de nouvelle génération, d'EDR et de gestion des vulnérabilités (MDVM) aux postes de travail Linux des développeurs et ingénieurs. Le déploiement s'appuie sur le même agent unifié que pour les serveurs Linux, avec une détection automatique de ",
+    "g": "Defender for Endpoint",
+    "w": "2026-W42",
+    "u": "microsoft/2026-W42.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Microsoft Entra ID : extension d'Universal CAE aux signaux de révocation et de conformité des appareils",
+    "s": "Universal Continuous Access Evaluation (Universal CAE) au sein de Global Secure Access prend désormais en charge des signaux étendus de révocation de terminaux en préversion publique. Dès qu'un appareil est désactivé, supprimé ou bascule en état non conforme dans Intune, l'accès aux ressources résea",
+    "g": "Entra ID",
+    "w": "2026-W42",
+    "u": "microsoft/2026-W42.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Microsoft Defender for Endpoint : évaluation des vulnérabilités pour les applications du Microsoft Store (GA)",
+    "s": "La gestion des vulnérabilités Microsoft Defender (MDVM) passe en disponibilité générale (GA) pour les applications installées via le Microsoft Store. Le moteur identifie désormais ces applications courantes, les intègre dans l'inventaire logiciel global et évalue automatiquement leurs CVE et failles",
+    "g": "Defender for Endpoint",
+    "w": "2026-W42",
+    "u": "microsoft/2026-W42.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
     "t": "Préversion publique de la suppression réversible et de la restauration des stratégies d'accès conditionnel et des emplacements nommés",
     "s": "Microsoft déploie en préversion publique la suppression réversible (soft delete) et la restauration des stratégies d'accès conditionnel ainsi que des emplacements nommés dans Entra ID. Les objets supprimés sont désormais conservés pendant 30 jours et peuvent être restaurés dans leur état exact via l",
     "g": "Conditional Access",
@@ -78,6 +102,38 @@
     "w": "2026-W40",
     "u": "microsoft/2026-W40.html",
     "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Exploitation active du zero-day Windows Shell CVE-2026-96951 contournant Mark of the Web",
+    "s": "Microsoft a corrigé lors du Patch Tuesday du 13 octobre 2026 une vulnérabilité zero-day activement exploitée (CVE-2026-96951, CVSS 8.8) affectant Windows Shell. Cette faille d'injection de commandes permet à des attaquants distants d'outrepasser les avertissements de sécurité Mark of the Web (MOTW) ",
+    "g": "Defender for Endpoint",
+    "w": "2026-W42",
+    "u": "menaces/2026-W42.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Multiples failles critiques RCE dans Microsoft Outlook déclenchables via le volet de lecture",
+    "s": "Le cycle de sécurité d'octobre 2026 corrige cinq vulnérabilités critiques d'exécution de code à distance (RCE) dans Microsoft Outlook, incluant CVE-2026-70242 et CVE-2026-70291 (CVSS 9.8). La menace est majeure en entreprise car le volet de prévisualisation (Reading Pane) sert de vecteur d'attaque d",
+    "g": "Exchange Online",
+    "w": "2026-W42",
+    "u": "menaces/2026-W42.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Zero-day .NET Framework CVE-2026-108398 permettant le contournement des stratégies WDAC",
+    "s": "Une vulnérabilité zero-day publiquement divulguée, répertoriée sous l'identifiant CVE-2026-108398 (CVSS 8.8), affecte le .NET Framework à la suite d'une mauvaise gestion des chemins de recherche de bibliothèques (Untrusted Search Path). Un attaquant local authentifié peut l'exploiter pour contourner",
+    "g": "Intune",
+    "w": "2026-W42",
+    "u": "menaces/2026-W42.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Rejeu différé de jetons de session Microsoft 365 post-AiTM sans réauthentification MFA",
+    "s": "Les retours d'incident de la mi-octobre mettent en lumière des attaques où des proxys inverses AiTM dérobent les cookies de session Microsoft 365 (notamment ESTSAUTH), puis observent un temps de latence de plus de 20 heures avant de rejouer la session depuis des réseaux VPN ou IP résidentielles dist",
+    "g": "Conditional Access",
+    "w": "2026-W42",
+    "u": "menaces/2026-W42.html",
+    "sec": "Attaques et menaces"
   },
   {
     "t": "Alerte CERT-FR sur une faille d'élévation de privilèges dans Microsoft Exchange Server (CVE-2026-96940)",

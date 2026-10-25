@@ -1,5 +1,29 @@
 [
   {
+    "t": "Durcissement d'Active Directory et Windows : Blocage par défaut des identifiants dérivés NTLMv1 (BlockNtlmv1SSO)",
+    "s": "La mise à jour de sécurité Windows d'octobre 2026 applique par défaut le blocage des identifiants dérivés de NTLMv1 à travers le paramètre de registre BlockNtlmv1SSO. Cette mesure neutralise les faiblesses cryptographiques de MS-CHAPv2 (dont la réponse d'authentification équivaut à du NTLMv1), affec",
+    "g": "Entra ID",
+    "w": "2026-W43",
+    "u": "microsoft/2026-W43.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Microsoft Entra ID : Gestion ciblée des liaisons d'objets de provisioning via Microsoft Graph (Preview)",
+    "s": "Microsoft a mis en préversion publique la gestion programmatique des identifiants de liaison d'objets (provisioning object connections) au sein du service de synchronisation via Microsoft Graph. Cette fonctionnalité permet de visualiser et de modifier les correspondances entre sourceAnchor et target",
+    "g": "Entra ID",
+    "w": "2026-W43",
+    "u": "microsoft/2026-W43.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Azure Confidential Computing : Chiffrement des disques OS volumineux pour les migrations Confidential VM (GA)",
+    "s": "Microsoft a officialisé la disponibilité générale de Large OS Disk Encryption (LOSDE) pour les projets de migration vers des machines virtuelles confidentielles Azure (Confidential VMs). Cette fonctionnalité comble la limitation historique des disques systèmes de 127 Go en autorisant le chiffrement ",
+    "g": "Azure",
+    "w": "2026-W43",
+    "u": "microsoft/2026-W43.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
     "t": "Microsoft Defender for Endpoint : préversion publique pour les postes de travail Linux",
     "s": "Microsoft étend les fonctionnalités complètes d'antivirus de nouvelle génération, d'EDR et de gestion des vulnérabilités (MDVM) aux postes de travail Linux des développeurs et ingénieurs. Le déploiement s'appuie sur le même agent unifié que pour les serveurs Linux, avec une détection automatique de ",
     "g": "Defender for Endpoint",
@@ -102,6 +126,46 @@
     "w": "2026-W40",
     "u": "microsoft/2026-W40.html",
     "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Compromission d'applications multi-tenants ConnectWise ciblant les environnements Microsoft 365 (Storm-0940)",
+    "s": "Entre le 18 et le 21 octobre 2026, Microsoft et l'éditeur ConnectWise ont révélé qu'un acteur étatique (Storm-0940) a détourné des identifiants d'applications d'entreprise multi-tenants (notamment ConnectWise Cloud Backup et Cloud Management) pour s'introduire dans plusieurs centaines de tenants Mic",
+    "g": "Entra ID",
+    "w": "2026-W43",
+    "u": "menaces/2026-W43.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Campagne massive de phishing Microsoft Teams dissimulée dans des invitations de calendrier (.ics)",
+    "s": "Documentée à la fin octobre 2026, une campagne de grande envergure totalisant plus de 300 000 courriels malveillants exploite de fausses invitations à des réunions Microsoft Teams distribuées sous forme de fichiers .ics. Les messages imitent les notifications internes légitimes avec un faux lien « R",
+    "g": "Defender for Office 365",
+    "w": "2026-W43",
+    "u": "menaces/2026-W43.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Alerte CERT-FR sur une faille d'élévation de privilèges dans Microsoft SharePoint (CVE-2026-88164)",
+    "s": "Dans son bulletin hebdomadaire CERTFR-2026-ACT-044 publié le 19 octobre 2026, le CERT-FR a mis en évidence une vulnérabilité critique d'élévation de privilèges référencée CVE-2026-88164 (score CVSS 8,8) ciblant Microsoft SharePoint Server Subscription Edition. Un attaquant distant déjà doté d'un com",
+    "g": "SharePoint",
+    "w": "2026-W43",
+    "u": "menaces/2026-W43.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Blocage des flux OWA et rupture de liaisons RPC sur Exchange suite aux correctifs Windows d'octobre 2026",
+    "s": "Entre le 16 et le 20 octobre 2026, Microsoft a confirmé un dysfonctionnement majeur affectant les serveurs de messagerie Exchange Server connectés à Windows Server 2019 et ultérieur. La mise à jour cumulative Windows d'octobre a introduit une limite stricte de 512 appels simultanés sur l'Endpoint Ma",
+    "g": "Exchange Online",
+    "w": "2026-W43",
+    "u": "menaces/2026-W43.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Usurpation de marque : Microsoft concentre un tiers des attaques mondiales de phishing",
+    "s": "Le rapport de Check Point Research sur les tendances de phishing publié mi-octobre 2026 révèle que Microsoft demeure la marque la plus usurpée au monde, représentant 33 % de l'ensemble des tentatives recensées (en hausse de 10 points). Les cybercriminels ciblent prioritairement la stack Microsoft ca",
+    "g": "Conditional Access",
+    "w": "2026-W43",
+    "u": "menaces/2026-W43.html",
+    "sec": "Attaques et menaces"
   },
   {
     "t": "Exploitation active du zero-day Windows Shell CVE-2026-96951 contournant Mark of the Web",

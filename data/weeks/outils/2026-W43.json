@@ -1,0 +1,68 @@
+{
+  "week": "2026-W43",
+  "date": "2026-10-25",
+  "items": [
+    {
+      "title": "agent-identity-governance-skills : audit et gouvernance des identités d'agents et principaux de service Entra ID",
+      "tag": "Défensif / blue team",
+      "summary": "Conçu par le chercheur en sécurité cloud Basit Ali Sandhu et publié le 20 octobre 2026 en version 0.3.0, ce projet open source propose une suite de compétences d'investigation fonctionnant avec Claude Code. Le projet répond directement au manque d'outillage communautaire pour gouverner les identités non humaines (NHI) et les agents IA dans les environnements cloud. Il analyse des exports bruts d'annuaire Entra ID (inscriptions d'applications, identités managées, Entra Agent IDs) afin de recenser les accès orphelins, signaler les permissions Microsoft Graph surdimensionnées, vérifier les identifiants fédérés non fiables et générer des procédures d'arrêt d'urgence.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://github.com/basitalisandhu/agent-identity-governance-skills",
+          "title": "GitHub - basitalisandhu/agent-identity-governance-skills: Claude Code skills for agent identity governance",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "terraform-provider-microsoft365 v1.4.0 : automatisation IaC des certificats SSO et de la conformité Intune",
+      "tag": "Logiciel PC",
+      "summary": "Maintenu activement par Deployment Theory et bénéficiant d'un cycle de livraison soutenu au sein de la communauté DevOps Microsoft, le fournisseur Terraform open source pour Microsoft 365 a publié sa version 1.4.0 le 19 octobre 2026. Bâti sur le framework Terraform et les SDK Kiota de Microsoft Graph, cet outil permet de déployer l'intégralité de la posture M365 en configuration-as-code. Cette mise à jour introduit la gestion du cycle de vie des certificats de signature de jetons SSO SAML pour les principaux de service Entra ID, le support des filtres d'assignation pour la page d'état d'inscription Windows (ESP) dans Intune, ainsi que la configuration des segments IP d'accès sécurisé.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://github.com/deploymenttheory/terraform-provider-microsoft365/releases/tag/v1.4.0",
+          "title": "Releases · deploymenttheory/terraform-provider-microsoft365 · GitHub",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "Consensus-OSINT v0.4.11 : moteur unifié de reconnaissance d'identités et d'adresses professionnelles",
+      "tag": "OSINT",
+      "summary": "Mis à disposition le 23 octobre 2026 par le collectif OSINT Experts Society, Consensus est un outil d'investigation en ligne de commande et interface locale bénéficiant de mises à jour hebdomadaires rigoureuses. Il agrège et normalise plus de 9 700 modules et règles de correspondances issus de 19 projets OSINT reconnus (dont WhatsMyName, Maigret et User Scanner) pour limiter les faux positifs. Pour l'analyste M365, la version 0.4.11 améliore la précision des recoupements sur les identifiants d'entreprise (UPN, domaines, adresses de messagerie), facilitant l'évaluation de l'empreinte publique des collaborateurs avant des tests d'hameçonnage ou d'ingénierie sociale.",
+      "note": "Opérant exclusivement en mode passif via l'interrogation de services tiers ouverts et de dépôts publics, l'utilisation de cet outil ne génère aucune télémétrie ni événement d'alerte dans les journaux d'audit du locataire Entra ID audité.",
+      "sources": [
+        {
+          "url": "https://github.com/OSINT-Experts-Society/Consensus-OSINT",
+          "title": "GitHub - OSINT-Experts-Society/Consensus-OSINT: Username, email & phone OSINT lookup tool",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft365-Analytics-Insights build 1854 : reporting d'adoption Copilot et diagnostic de licences",
+      "tag": "Défensif / blue team",
+      "summary": "Porté par la communauté officielle Microsoft 365 PnP (Patterns and Practices), le projet open source Microsoft365-Analytics-Insights a publié sa version stable 1854 le 22 octobre 2026. Cette solution assure la collecte, l'audit et l'analyse avancée de la télémétrie d'usage des locataires Microsoft 365 directement sur l'infrastructure de l'entreprise. La build 1854 intègre un moteur de diagnostic de conformité des licences par utilisateur, une gestion renforcée des paramètres de gouvernance Microsoft 365 Copilot, ainsi qu'une fiabilisation accrue du module d'importation depuis les journaux d'audit unifiés (UAL).",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://github.com/pnp/Microsoft365-Analytics-Insights/releases",
+          "title": "Releases · pnp/Microsoft365-Analytics-Insights · GitHub",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/pnp/Microsoft365-Analytics-Insights",
+          "title": "GitHub - pnp/Microsoft365-Analytics-Insights: Advanced Analytics data collection for M365 usage",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    }
+  ]
+}

@@ -183,5 +183,65 @@
     "section": "outils",
     "week": "2026-W42",
     "title": "ConditionalAccessBaseline : référentiel structuré de politiques d'accès conditionnel Entra ID"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W43",
+    "title": "Durcissement d'Active Directory et Windows : Blocage par défaut des identifiants dérivés NTLMv1 (BlockNtlmv1SSO)"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W43",
+    "title": "Microsoft Entra ID : Gestion ciblée des liaisons d'objets de provisioning via Microsoft Graph (Preview)"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W43",
+    "title": "Azure Confidential Computing : Chiffrement des disques OS volumineux pour les migrations Confidential VM (GA)"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W43",
+    "title": "Compromission d'applications multi-tenants ConnectWise ciblant les environnements Microsoft 365 (Storm-0940)"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W43",
+    "title": "Campagne massive de phishing Microsoft Teams dissimulée dans des invitations de calendrier (.ics)"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W43",
+    "title": "Alerte CERT-FR sur une faille d'élévation de privilèges dans Microsoft SharePoint (CVE-2026-88164)"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W43",
+    "title": "Blocage des flux OWA et rupture de liaisons RPC sur Exchange suite aux correctifs Windows d'octobre 2026"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W43",
+    "title": "Usurpation de marque : Microsoft concentre un tiers des attaques mondiales de phishing"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W43",
+    "title": "agent-identity-governance-skills : audit et gouvernance des identités d'agents et principaux de service Entra ID"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W43",
+    "title": "terraform-provider-microsoft365 v1.4.0 : automatisation IaC des certificats SSO et de la conformité Intune"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W43",
+    "title": "Consensus-OSINT v0.4.11 : moteur unifié de reconnaissance d'identités et d'adresses professionnelles"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W43",
+    "title": "Microsoft365-Analytics-Insights build 1854 : reporting d'adoption Copilot et diagnostic de licences"
   }
 ]

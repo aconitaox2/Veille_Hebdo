@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Nouveautés Microsoft – 2026-W43 · Veille cyber &amp; Microsoft 365</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Veille cyber &amp; Microsoft 365</a>
+    <nav>
+      <a href="../index.html" >Accueil</a>
+      <a href="../microsoft/index.html" class="on">Nouveautés Microsoft</a><a href="../menaces/index.html" >Attaques et menaces</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<p class="crumb"><a href="index.html">Nouveautés Microsoft</a> / Semaine 43</p>
+<h1>Nouveautés Microsoft <span class="muted">· semaine 43</span></h1>
+
+<article class="item">
+  <span class="tag">Entra ID</span>
+  <h3>Durcissement d&#39;Active Directory et Windows : Blocage par défaut des identifiants dérivés NTLMv1 (BlockNtlmv1SSO)</h3>
+  <p>La mise à jour de sécurité Windows d&#39;octobre 2026 applique par défaut le blocage des identifiants dérivés de NTLMv1 à travers le paramètre de registre BlockNtlmv1SSO. Cette mesure neutralise les faiblesses cryptographiques de MS-CHAPv2 (dont la réponse d&#39;authentification équivaut à du NTLMv1), affectant directement les infrastructures Wi-Fi 802.1X, VPN et NPS/RADIUS dépendantes des comptes de domaine. Le consultant doit auditer sans attendre les journaux clients Microsoft-Windows-NTLM/Operational (événements 4024 et 4025) et planifier la migration vers une authentification moderne basée sur certificats (EAP-TLS) ou vers Microsoft Entra Private Access.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/discussions/cloudservicesproviderspartners/re-microsoft-csp---indirect-reseller-status-is-suspended-and-cant-get-fixed/4277476" target="_blank" rel="noopener noreferrer nofollow">Bracing for BlockNtlmv1SSO - Microsoft Community Hub</a><span class="dom">techcommunity.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/discussions/cloudservicesproviderspartners/re-microsoft-csp---indirect-reseller-status-is-suspended-and-cant-get-fixed/4277476" target="_blank" rel="noopener noreferrer nofollow">Core Infrastructure and Security: BlockNtlmv1SSO Enforcement</a><span class="dom">techcommunity.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Entra ID</span>
+  <h3>Microsoft Entra ID : Gestion ciblée des liaisons d&#39;objets de provisioning via Microsoft Graph (Preview)</h3>
+  <p>Microsoft a mis en préversion publique la gestion programmatique des identifiants de liaison d&#39;objets (provisioning object connections) au sein du service de synchronisation via Microsoft Graph. Cette fonctionnalité permet de visualiser et de modifier les correspondances entre sourceAnchor et targetAnchor pour les flux SCIM, les connecteurs RH (Workday, SuccessFactors) ou la synchronisation Active Directory. Pour l&#39;administrateur, cela permet de résoudre chirurgicalement des collisions d&#39;identités ou des ruptures de cycle de vie sur un compte donné sans devoir relancer ou réinitialiser un travail complet de synchronisation du tenant.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/graph/api/resources/synchronization-overview?view=graph-rest-1.0" target="_blank" rel="noopener noreferrer nofollow">Microsoft Graph Provisioning and Synchronization Overview</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Azure</span>
+  <h3>Azure Confidential Computing : Chiffrement des disques OS volumineux pour les migrations Confidential VM (GA)</h3>
+  <p>Microsoft a officialisé la disponibilité générale de Large OS Disk Encryption (LOSDE) pour les projets de migration vers des machines virtuelles confidentielles Azure (Confidential VMs). Cette fonctionnalité comble la limitation historique des disques systèmes de 127 Go en autorisant le chiffrement matériel de disques volumineux tout en supportant les clés gérées par le client (CMK) sous Windows Server et Linux (Ubuntu, RHEL, Rocky Linux). Pour les consultants en architecture cloud, cela permet d&#39;intégrer des serveurs d&#39;applications et bases de données lourdes dans les plans de migration Azure Migrate en garantissant une isolation totale de la mémoire et du stockage au repos.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/blog/azuresqlblog/re-external-rest-endpoint-invocation-is-now-ga/4276413" target="_blank" rel="noopener noreferrer nofollow">Strengthening Confidential VM Migrations with Large OS Disk Encryption</a><span class="dom">techcommunity.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-overview" target="_blank" rel="noopener noreferrer nofollow">Overview of Azure Confidential Virtual Machines</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article>
+</main>
+<footer class="wrap foot">Récaps générés par IA à partir des sources citées. Mise à jour chaque dimanche.</footer>
+
+</body>
+</html>

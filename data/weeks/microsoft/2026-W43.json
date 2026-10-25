@@ -1,0 +1,60 @@
+{
+  "week": "2026-W43",
+  "date": "2026-10-25",
+  "items": [
+    {
+      "title": "Durcissement d'Active Directory et Windows : Blocage par défaut des identifiants dérivés NTLMv1 (BlockNtlmv1SSO)",
+      "tag": "Entra ID",
+      "summary": "La mise à jour de sécurité Windows d'octobre 2026 applique par défaut le blocage des identifiants dérivés de NTLMv1 à travers le paramètre de registre BlockNtlmv1SSO. Cette mesure neutralise les faiblesses cryptographiques de MS-CHAPv2 (dont la réponse d'authentification équivaut à du NTLMv1), affectant directement les infrastructures Wi-Fi 802.1X, VPN et NPS/RADIUS dépendantes des comptes de domaine. Le consultant doit auditer sans attendre les journaux clients Microsoft-Windows-NTLM/Operational (événements 4024 et 4025) et planifier la migration vers une authentification moderne basée sur certificats (EAP-TLS) ou vers Microsoft Entra Private Access.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/discussions/cloudservicesproviderspartners/re-microsoft-csp---indirect-reseller-status-is-suspended-and-cant-get-fixed/4277476",
+          "title": "Bracing for BlockNtlmv1SSO - Microsoft Community Hub",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/discussions/cloudservicesproviderspartners/re-microsoft-csp---indirect-reseller-status-is-suspended-and-cant-get-fixed/4277476",
+          "title": "Core Infrastructure and Security: BlockNtlmv1SSO Enforcement",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Entra ID : Gestion ciblée des liaisons d'objets de provisioning via Microsoft Graph (Preview)",
+      "tag": "Entra ID",
+      "summary": "Microsoft a mis en préversion publique la gestion programmatique des identifiants de liaison d'objets (provisioning object connections) au sein du service de synchronisation via Microsoft Graph. Cette fonctionnalité permet de visualiser et de modifier les correspondances entre sourceAnchor et targetAnchor pour les flux SCIM, les connecteurs RH (Workday, SuccessFactors) ou la synchronisation Active Directory. Pour l'administrateur, cela permet de résoudre chirurgicalement des collisions d'identités ou des ruptures de cycle de vie sur un compte donné sans devoir relancer ou réinitialiser un travail complet de synchronisation du tenant.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/resources/synchronization-overview?view=graph-rest-1.0",
+          "title": "Microsoft Graph Provisioning and Synchronization Overview",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Azure Confidential Computing : Chiffrement des disques OS volumineux pour les migrations Confidential VM (GA)",
+      "tag": "Azure",
+      "summary": "Microsoft a officialisé la disponibilité générale de Large OS Disk Encryption (LOSDE) pour les projets de migration vers des machines virtuelles confidentielles Azure (Confidential VMs). Cette fonctionnalité comble la limitation historique des disques systèmes de 127 Go en autorisant le chiffrement matériel de disques volumineux tout en supportant les clés gérées par le client (CMK) sous Windows Server et Linux (Ubuntu, RHEL, Rocky Linux). Pour les consultants en architecture cloud, cela permet d'intégrer des serveurs d'applications et bases de données lourdes dans les plans de migration Azure Migrate en garantissant une isolation totale de la mémoire et du stockage au repos.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/azuresqlblog/re-external-rest-endpoint-invocation-is-now-ga/4276413",
+          "title": "Strengthening Confidential VM Migrations with Large OS Disk Encryption",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-overview",
+          "title": "Overview of Azure Confidential Virtual Machines",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        }
+      ]
+    }
+  ]
+}

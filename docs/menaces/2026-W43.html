@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Attaques et menaces – 2026-W43 · Veille cyber &amp; Microsoft 365</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Veille cyber &amp; Microsoft 365</a>
+    <nav>
+      <a href="../index.html" >Accueil</a>
+      <a href="../microsoft/index.html" >Nouveautés Microsoft</a><a href="../menaces/index.html" class="on">Attaques et menaces</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<p class="crumb"><a href="index.html">Attaques et menaces</a> / Semaine 43</p>
+<h1>Attaques et menaces <span class="muted">· semaine 43</span></h1>
+
+<article class="item">
+  <span class="tag">Entra ID</span>
+  <h3>Compromission d&#39;applications multi-tenants ConnectWise ciblant les environnements Microsoft 365 (Storm-0940)</h3>
+  <p>Entre le 18 et le 21 octobre 2026, Microsoft et l&#39;éditeur ConnectWise ont révélé qu&#39;un acteur étatique (Storm-0940) a détourné des identifiants d&#39;applications d&#39;entreprise multi-tenants (notamment ConnectWise Cloud Backup et Cloud Management) pour s&#39;introduire dans plusieurs centaines de tenants Microsoft 365 sans compromettre de compte utilisateur. En s&#39;appuyant sur le framework automatisé ARTEX, l&#39;attaquant a exploité les autorisations applicatives Microsoft Graph pour siphonner des boîtes aux lettres, des flux Teams et ajouter de nouveaux secrets d&#39;application à des fins de persistance. ConnectWise a désactivé en urgence sept identités d&#39;application et révoqué les certificats associés afin de bloquer les accès non autorisés.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Désactivez immédiatement l&#39;application d&#39;entreprise dans Entra ID via son ID (ex. 506e08f9-6e9a-4da4-942b-a099a03644ae) sous Propriétés &gt; « Activé pour la connexion des utilisateurs ? = Non ». Détectez les requêtes frauduleuses dans Sentinel avec la requête KQL : `AADServicePrincipalSignInLogs | where ServicePrincipalId == &#39;506e08f9-6e9a-4da4-942b-a099a03644ae&#39; or IPAddress startswith &#39;144.172.64.&#39;`. Enfin, appliquez des règles d&#39;accès conditionnel pour les identités de charge de travail (Workload Identities) afin de restreindre les appels API aux plages d&#39;adresses IP de confiance.</div>
+  <ul class="sources">
+    <li><span class="stype">article</span><a href="https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html" target="_blank" rel="noopener noreferrer nofollow">China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack</a><span class="dom">thehackernews.com</span></li><li><span class="stype">article</span><a href="https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html" target="_blank" rel="noopener noreferrer nofollow">ConnectWise Suspends Cloud Backup After Attackers Compromise Microsoft 365 Tenants</a><span class="dom">thehackernews.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Defender for Office 365</span>
+  <h3>Campagne massive de phishing Microsoft Teams dissimulée dans des invitations de calendrier (.ics)</h3>
+  <p>Documentée à la fin octobre 2026, une campagne de grande envergure totalisant plus de 300 000 courriels malveillants exploite de fausses invitations à des réunions Microsoft Teams distribuées sous forme de fichiers .ics. Les messages imitent les notifications internes légitimes avec un faux lien « Rejoindre la réunion » redirigeant les collaborateurs vers des pages de connexion Microsoft 365 clonées afin d&#39;intercepter identifiants et jetons. Cette méthode permet aux cybercriminels de tromper la vigilance des utilisateurs tout en contournant les passerelles de messagerie qui n&#39;inspectent pas en profondeur les métadonnées des pièces jointes de type calendrier.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Configurez Microsoft Defender for Office 365 pour appliquer l&#39;analyse Safe Attachments en mode blocage dynamique sur les pièces jointes .ics ainsi que la réécriture Safe Links sur les URL qu&#39;elles contiennent. Recherchez les messages suspects avec cette requête KQL : `EmailAttachmentInfo | where FileType has &#39;ics&#39; | join EmailUrlInfo on NetworkMessageId | where UrlDomain !has &#39;microsoft.com&#39; and (Url has &#39;teams&#39; or Url has &#39;meeting&#39;) | project DeliveryTime, RecipientEmailAddress, SenderFromAddress, Url`.</div>
+  <ul class="sources">
+    <li><span class="stype">article</span><a href="https://blog.checkpoint.com/security/inside-the-q3-2026-brand-phishing-report-microsoft-now-accounts-for-one-in-three-brand-impersonation/" target="_blank" rel="noopener noreferrer nofollow">Inside the Q3 2026 Brand Phishing Report: Microsoft Now Accounts for One in Three Brand Impersonation</a><span class="dom">blog.checkpoint.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">SharePoint</span>
+  <h3>Alerte CERT-FR sur une faille d&#39;élévation de privilèges dans Microsoft SharePoint (CVE-2026-88164)</h3>
+  <p>Dans son bulletin hebdomadaire CERTFR-2026-ACT-044 publié le 19 octobre 2026, le CERT-FR a mis en évidence une vulnérabilité critique d&#39;élévation de privilèges référencée CVE-2026-88164 (score CVSS 8,8) ciblant Microsoft SharePoint Server Subscription Edition. Un attaquant distant déjà doté d&#39;un compte avec des droits restreints sur l&#39;organisation peut exploiter cette faille pour contourner les mécanismes d&#39;autorisation et s&#39;octroyer des privilèges administrateur sur la ferme SharePoint. Bien que distincte des précédentes failles RCE publiques, cette vulnérabilité expose les données documentaires critiques et peut servir de levier pour pivoter vers l&#39;Active Directory.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Appliquez immédiatement le correctif vers la build 16.0.20326.20190 ou supérieure de SharePoint Server Subscription Edition. Surveillez dans Microsoft Defender for Endpoint les comportements inhabituels ou injections de processus issus de `w3wp.exe` liés aux pools d&#39;applications SharePoint (`DeviceProcessEvents | where ProcessCommandLine has &#39;w3wp.exe&#39; and InitiatingProcessFileName =~ &#39;w3wp.exe&#39;`).</div>
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://cert.cyber.gouv.fr/actualite/CERTFR-2026-ACT-044/" target="_blank" rel="noopener noreferrer nofollow">Bulletin d&#39;actualité CERTFR-2026-ACT-044 - CERT-FR</a><span class="dom">cert.cyber.gouv.fr</span></li><li><span class="stype">officielle</span><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-88164" target="_blank" rel="noopener noreferrer nofollow">Microsoft SharePoint Server Elevation of Privilege Vulnerability - CVE-2026-88164</a><span class="dom">msrc.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Exchange Online</span>
+  <h3>Blocage des flux OWA et rupture de liaisons RPC sur Exchange suite aux correctifs Windows d&#39;octobre 2026</h3>
+  <p>Entre le 16 et le 20 octobre 2026, Microsoft a confirmé un dysfonctionnement majeur affectant les serveurs de messagerie Exchange Server connectés à Windows Server 2019 et ultérieur. La mise à jour cumulative Windows d&#39;octobre a introduit une limite stricte de 512 appels simultanés sur l&#39;Endpoint Mapper RPC, saturant les traitements sous forte charge et provoquant des échecs massifs de connexion sur Outlook on the Web (erreur MapiExceptionMdbOffline / Event ID 1006) ainsi que le blocage des courriels sortants. Cette dégradation perturbe particulièrement les flux de synchronisation et de transport dans les organisations opérant en environnement hybride avec Exchange Online.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Ne désinstallez pas les correctifs de sécurité : appliquez la directive Microsoft en modifiant la clé de registre `HKLM\SOFTWARE\Microsoft\Rpc` pour rehausser la limite mémoire de l&#39;Endpoint Mapper sur les serveurs Exchange. Surveillez l&#39;apparition de l&#39;Event ID 1006 dans le journal Application via la commande PowerShell `Get-WinEvent -FilterHashtable @{LogName=&#39;Application&#39;; ProviderName=&#39;MSExchangeIS&#39;; Id=1006}` afin de détecter immédiatement la rupture des boîtes aux lettres.</div>
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/blog/exchange/exchange-servers-may-become-unstable-after-installation-of-october-2026-windows-/4565382" target="_blank" rel="noopener noreferrer nofollow">Exchange servers may become unstable after installation of October 2026 Windows updates</a><span class="dom">techcommunity.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Conditional Access</span>
+  <h3>Usurpation de marque : Microsoft concentre un tiers des attaques mondiales de phishing</h3>
+  <p>Le rapport de Check Point Research sur les tendances de phishing publié mi-octobre 2026 révèle que Microsoft demeure la marque la plus usurpée au monde, représentant 33 % de l&#39;ensemble des tentatives recensées (en hausse de 10 points). Les cybercriminels ciblent prioritairement la stack Microsoft car la compromission d&#39;un compte professionnel ouvre un accès direct aux outils collaboratifs (Teams, OneDrive, SharePoint) et facilite les fraudes au président (BEC) ou le rebond interne. La recrudescence des leurres simulant les alertes de facturation et les portails de connexion Microsoft accentue la pression sur les identités d&#39;entreprise.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Déployez une stratégie d&#39;accès conditionnel exigeant une force d&#39;authentification résistante au phishing (Phishing-resistant MFA : clés FIDO2 ou Windows Hello for Business) pour tous les accès aux applications cloud Microsoft 365. Détectez les connexions anormales résultant d&#39;identifiants dérobés avec la requête KQL : `SigninLogs | where AuthenticationRequirement == &#39;multiFactorAuthentication&#39; | where RiskLevelDuringSignIn in (&#39;high&#39;, &#39;medium&#39;) | project TimeGenerated, UserPrincipalName, IPAddress, Location, RiskDetails`.</div>
+  <ul class="sources">
+    <li><span class="stype">article</span><a href="https://blog.checkpoint.com/security/inside-the-q3-2026-brand-phishing-report-microsoft-now-accounts-for-one-in-three-brand-impersonation/" target="_blank" rel="noopener noreferrer nofollow">Inside the Q3 2026 Brand Phishing Report: Microsoft Now Accounts for One in Three Brand Impersonation</a><span class="dom">blog.checkpoint.com</span></li>
+  </ul>
+</article>
+</main>
+<footer class="wrap foot">Récaps générés par IA à partir des sources citées. Mise à jour chaque dimanche.</footer>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+  "week": "2026-W44",
+  "date": "2026-11-01",
+  "items": [
+    {
+      "title": "Usurpation du support informatique sous Teams menant à l'escalade AD CS (ESC1/ESC8)",
+      "tag": "Defender for Identity",
+      "summary": "L'équipe Microsoft Threat Intelligence a exposé le 30 octobre 2026 une chaîne d'intrusion particulièrement offensive débutant par des sollicitations sur Microsoft Teams. Des attaquants créent des profils d'assistance technique pour convaincre des employés de démarrer une session d'assistance à distance via Quick Assist. Une fois l'accès obtenu sur le poste de travail, ils exploitent des modèles de certificats vulnérables (ESC1) et relaient des authentifications NTLM vers l'inscription web Active Directory Certificate Services (ESC8). Cela permet aux cybercriminels d'émettre des certificats d'authentification Kerberos pour des comptes hautement privilégiés et des contrôleurs de domaine, contournant ainsi toute réinitialisation de mot de passe.",
+      "note": "Restreindre l'exécution de Quick Assist par politique Intune ou règles AppLocker/WDAC, et désactiver NTLM ou imposer Extended Protection for Authentication (EPA) sur les serveurs AD CS. Côté détection, surveiller les requêtes de certificats anormales dans Microsoft Defender for Identity et chasser les anomalies d'émission via KQL : IdentityDirectoryEvents | where ActionType has 'Certificate' or Application == 'Active Directory'.",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths/",
+          "title": "From help desk impersonation to AD CS abuse: Investigating ESC1 and ESC8 intrusion paths",
+          "type": "officielle",
+          "domain": "microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Campagnes massives de rançongiciels exploitant le chat externe Teams",
+      "tag": "Microsoft 365",
+      "summary": "Une publication du 26 octobre 2026 détaille plus de 400 incidents récents où des opérateurs malveillants exploitent les fonctionnalités de communication externe (fédération) de Microsoft Teams. Les pirates génèrent des locataires Microsoft 365 temporaires pour envoyer des messages sous des identités usurpées telles que « IT Support (Internal) ». En simulant une urgence technique, ils poussent les collaborateurs à basculer vers un appel vocal ou à exécuter des logiciels d'assistance (Quick Assist, AnyDesk, ScreenConnect). Ces compromissions directes ont été observées comme vecteur d'entrée pour des déploiements de rançongiciels.",
+      "note": "Désactiver la communication externe ouverte dans le centre d'administration Microsoft Teams ou la restreindre strictement via une liste d'approbation (allowlist) aux seuls domaines partenaires nécessaires. Configurer Microsoft Defender for Office 365 pour filtrer les messages entrants et déployer des alertes dans Defender for Endpoint lors du téléchargement d'exécutables RMM non approuvés.",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths/",
+          "title": "From help desk impersonation to AD CS abuse: Investigating ESC1 and ESC8 intrusion paths - Microsoft",
+          "type": "officielle",
+          "domain": "microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Apparition du kit SkyW4lker : vol de jetons Microsoft 365 par Device Code Phishing",
+      "tag": "Conditional Access",
+      "summary": "Les chercheurs d'ANY.RUN ont révélé le 28 octobre 2026 les activités du kit de phishing « SkyW4lker » (SkyW4lker x365 Sentinel) ciblant spécifiquement les comptes Microsoft 365. La chaîne d'attaque contourne le MFA sans dérober de mot de passe en détournant le flux d'autorisation OAuth 2.0 Device Authorization Grant (RFC 8628). Les victimes reçoivent des documents leur demandant d'entrer un code sur la page légitime microsoft.com/devicelogin. Dès la validation effectuée par l'utilisateur, l'infrastructure attaquante récupère immédiatement les jetons d'accès OAuth générés pour s'infiltrer dans l'environnement cloud.",
+      "note": "Créer une stratégie Conditional Access bloquant le flux Device Code ou exigeant un appareil conforme/joint hybride Entra ID pour toute requête OAuth. Traquer ces flux dans Microsoft Sentinel ou Advanced Hunting avec la requête KQL : SigninLogs | where AuthenticationProtocol =~ 'deviceCode' | project TimeGenerated, UserPrincipalName, AppDisplayName, IPAddress, Location.",
+      "sources": [
+        {
+          "url": "https://thehackernews.com/2026/10/american-organizations-under-attack.html",
+          "title": "American Organizations Under Attack: Skyw4lker Device Code Phishing Campaign Exposed - The Hacker News",
+          "type": "article",
+          "domain": "thehackernews.com"
+        }
+      ]
+    },
+    {
+      "title": "Vulnérabilité critique Brotli CVE-2026-111497 (KEV) : correctifs OOB .NET et parade Azure",
+      "tag": "Azure",
+      "summary": "La CISA a intégré la faille critique CVE-2026-111497 (Node2Shell) à son catalogue KEV en raison de son exploitation active dans la nature. Liée à un débordement de mémoire dans le décodeur Brotli, cette vulnérabilité touche directement les implémentations applicatives .NET et les services cloud traitant des requêtes compressées. Microsoft a publié le 25 octobre des correctifs cumulatifs hors-bande (OOB) pour .NET 8, 9 et 10, suivis d'un guide client le 31 octobre pour sécuriser les environnements Azure. Les attaquants peuvent déclencher un déni de service, une divulgation de mémoire ou une exécution de code.",
+      "note": "Appliquer immédiatement les mises à jour hors-bande .NET sur l'ensemble des serveurs et conteneurs, et recompiler les applications déployées en mode 'self-contained'. Activer Azure Web Application Firewall (WAF) sur Application Gateway ou Azure Front Door avec le jeu de règles géré DRS 2.2 (règle 920450) en mode Prévention pour bloquer les requêtes Brotli corrompues à l'entrée.",
+      "sources": [
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "title": "Known Exploited Vulnerabilities Catalog - CISA",
+          "type": "officielle",
+          "domain": "cisa.gov"
+        }
+      ]
+    },
+    {
+      "title": "Alerte CERT-FR : vulnérabilités critiques dans Veeam Backup pour Microsoft 365",
+      "tag": "Microsoft 365",
+      "summary": "Le CERT-FR a émis le 28 octobre 2026 le bulletin d'alerte CERTFR-2026-AVI-1399 relatif à de multiples vulnérabilités critiques au sein des solutions Veeam, dont Veeam Backup pour Microsoft 365 (antérieur à 8.6 Patch 1). Ces failles permettent à des attaquants distants de réaliser des injections de commandes, d'exécuter du code arbitraire et d'élever leurs privilèges sur les composants de sauvegarde. Une compromission de ces serveurs donne un accès privilégié direct aux archives des messageries Exchange Online, aux bibliothèques SharePoint et aux canaux Teams connectés aux passerelles de sauvegarde.",
+      "note": "Déployer sans délai les correctifs éditeur (build 8.6.0.5011) et isoler strictement les serveurs de sauvegarde M365 des accès Internet publics. Dans Microsoft Entra ID et Defender for Cloud Apps, auditer les consentements et l'activité des applications d'entreprise dédiées à la sauvegarde pour détecter tout usage atypique des jetons Microsoft Graph ou Exchange.",
+      "sources": [
+        {
+          "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1399/",
+          "title": "Multiples vulnérabilités dans les produits Veeam - CERT-FR - ANSSI",
+          "type": "officielle",
+          "domain": "cert.cyber.gouv.fr"
+        }
+      ]
+    }
+  ]
+}

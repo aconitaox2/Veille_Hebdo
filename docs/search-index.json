@@ -1,5 +1,45 @@
 [
   {
+    "t": "Microsoft Entra ID : Application globale du Content Security Policy (CSP) sur la mire de connexion",
+    "s": "Microsoft a finalisé le déploiement mondial d'en-têtes Content Security Policy (CSP) stricts sur le portail d'authentification web login.microsoftonline.com. Cette mesure bloque l'exécution de scripts tiers et toute injection de code non approuvé, protégeant les sessions contre les attaques par inje",
+    "g": "Entra ID",
+    "w": "2026-W44",
+    "u": "microsoft/2026-W44.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Microsoft Intune : Blocage du déploiement Windows Autopilot sur les applications Enterprise App Management",
+    "s": "Microsoft permet désormais d'inclure les applications à mise à jour automatique issues d'Enterprise App Management (EAM) comme éléments bloquants dans les stratégies de préparation Autopilot (Autopilot Device Preparation). La phase de configuration out-of-box (OOBE) reste suspendue tant que ces appl",
+    "g": "Intune",
+    "w": "2026-W44",
+    "u": "microsoft/2026-W44.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Microsoft Intune : Prise en charge de la directive « Enforce Routes » pour les profils VPN Apple et retrait du MDM hérité",
+    "s": "La mise à jour de service 2610 d'Intune intègre la directive « Enforce Routes » pour les profils VPN sur iOS/iPadOS et macOS, prévenant ainsi les contournements de tunnels et les fuites de trafic (« de-cloaking »). En parallèle, Microsoft supprime définitivement les charges de travail héritées de mi",
+    "g": "Intune",
+    "w": "2026-W44",
+    "u": "microsoft/2026-W44.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Microsoft Defender for Identity : Déploiement automatique du capteur v3.x, audit Windows et nouvelles alertes Entra ID",
+    "s": "Microsoft amorce l'activation automatique par défaut du capteur v3.x et de la configuration de l'audit Windows pour les tenants existants (avec notification de 30 jours et option de désistement), tout en restreignant les capteurs v2.x aux serveurs historiques. Le service enrichit également son catal",
+    "g": "Defender for Identity",
+    "w": "2026-W44",
+    "u": "microsoft/2026-W44.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Microsoft Defender for Office 365 : Chasse avancée sur les réunions Teams et audit granulaire des approbations d'e-mails",
+    "s": "Microsoft enrichit l'Advanced Hunting dans Defender XDR avec l'introduction de la table CallActivityEvents pour tracer et enquêter sur les comportements suspects durant les appels et réunions Microsoft Teams. Par ailleurs, les utilisateurs peuvent désormais signaler des réunions ou participants susp",
+    "g": "Defender for Office 365",
+    "w": "2026-W44",
+    "u": "microsoft/2026-W44.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
     "t": "Durcissement d'Active Directory et Windows : Blocage par défaut des identifiants dérivés NTLMv1 (BlockNtlmv1SSO)",
     "s": "La mise à jour de sécurité Windows d'octobre 2026 applique par défaut le blocage des identifiants dérivés de NTLMv1 à travers le paramètre de registre BlockNtlmv1SSO. Cette mesure neutralise les faiblesses cryptographiques de MS-CHAPv2 (dont la réponse d'authentification équivaut à du NTLMv1), affec",
     "g": "Entra ID",
@@ -126,6 +166,46 @@
     "w": "2026-W40",
     "u": "microsoft/2026-W40.html",
     "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Usurpation du support informatique sous Teams menant à l'escalade AD CS (ESC1/ESC8)",
+    "s": "L'équipe Microsoft Threat Intelligence a exposé le 30 octobre 2026 une chaîne d'intrusion particulièrement offensive débutant par des sollicitations sur Microsoft Teams. Des attaquants créent des profils d'assistance technique pour convaincre des employés de démarrer une session d'assistance à dista",
+    "g": "Defender for Identity",
+    "w": "2026-W44",
+    "u": "menaces/2026-W44.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Campagnes massives de rançongiciels exploitant le chat externe Teams",
+    "s": "Une publication du 26 octobre 2026 détaille plus de 400 incidents récents où des opérateurs malveillants exploitent les fonctionnalités de communication externe (fédération) de Microsoft Teams. Les pirates génèrent des locataires Microsoft 365 temporaires pour envoyer des messages sous des identités",
+    "g": "Microsoft 365",
+    "w": "2026-W44",
+    "u": "menaces/2026-W44.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Apparition du kit SkyW4lker : vol de jetons Microsoft 365 par Device Code Phishing",
+    "s": "Les chercheurs d'ANY.RUN ont révélé le 28 octobre 2026 les activités du kit de phishing « SkyW4lker » (SkyW4lker x365 Sentinel) ciblant spécifiquement les comptes Microsoft 365. La chaîne d'attaque contourne le MFA sans dérober de mot de passe en détournant le flux d'autorisation OAuth 2.0 Device Au",
+    "g": "Conditional Access",
+    "w": "2026-W44",
+    "u": "menaces/2026-W44.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Vulnérabilité critique Brotli CVE-2026-111497 (KEV) : correctifs OOB .NET et parade Azure",
+    "s": "La CISA a intégré la faille critique CVE-2026-111497 (Node2Shell) à son catalogue KEV en raison de son exploitation active dans la nature. Liée à un débordement de mémoire dans le décodeur Brotli, cette vulnérabilité touche directement les implémentations applicatives .NET et les services cloud trai",
+    "g": "Azure",
+    "w": "2026-W44",
+    "u": "menaces/2026-W44.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Alerte CERT-FR : vulnérabilités critiques dans Veeam Backup pour Microsoft 365",
+    "s": "Le CERT-FR a émis le 28 octobre 2026 le bulletin d'alerte CERTFR-2026-AVI-1399 relatif à de multiples vulnérabilités critiques au sein des solutions Veeam, dont Veeam Backup pour Microsoft 365 (antérieur à 8.6 Patch 1). Ces failles permettent à des attaquants distants de réaliser des injections de c",
+    "g": "Microsoft 365",
+    "w": "2026-W44",
+    "u": "menaces/2026-W44.html",
+    "sec": "Attaques et menaces"
   },
   {
     "t": "Compromission d'applications multi-tenants ConnectWise ciblant les environnements Microsoft 365 (Storm-0940)",

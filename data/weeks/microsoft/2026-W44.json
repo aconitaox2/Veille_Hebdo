@@ -1,0 +1,88 @@
+{
+  "week": "2026-W44",
+  "date": "2026-11-01",
+  "items": [
+    {
+      "title": "Microsoft Entra ID : Application globale du Content Security Policy (CSP) sur la mire de connexion",
+      "tag": "Entra ID",
+      "summary": "Microsoft a finalisé le déploiement mondial d'en-têtes Content Security Policy (CSP) stricts sur le portail d'authentification web login.microsoftonline.com. Cette mesure bloque l'exécution de scripts tiers et toute injection de code non approuvé, protégeant les sessions contre les attaques par injection et les extensions de navigateur malveillantes. Pour les consultants et administrateurs d'identités, il convient de vérifier le bon fonctionnement des postes équipés d'extensions tierces (gestionnaires de mots de passe, outils d'automatisation) et de s'assurer qu'aucun blocage d'authentification n'affecte les utilisateurs.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity-platform/content-security-policy",
+          "title": "Content Security Policy (CSP) rollout in Microsoft Entra ID - Microsoft identity platform",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        },
+        {
+          "url": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=09213cdc-9f30-4e82-aa6f-9b6e8d82dab3&redirect_uri=https%3A%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fs%2Fauth%2Foauth2callback%2Fproviderid%2Fdefault&response_type=code&state=VhCSHMxyieZ4HPaVO1lS5LrEq1YHzdBQjUMr6YMd960-O3xYRNNAR6imlmNOoCGz3v6ulFiiG_SJOaUU0--Q-qCj9E7grqQaKKbctmALXmNmaX9pszpEcOlvL-j7WWqawTliSqRRrn0HPjnIV8DI6VcScZ-cYXj1ueoSUY5HqloUCRgVsp3nIMtgn6aF20o0&scope=User.Read+openid+email+profile+offline_access&referer=https%3A%2F%2Ftechcommunity.microsoft.com%2Fcategory%2Fcommunities%2Fblog%2Fidentity",
+          "title": "Microsoft Entra Blog",
+          "type": "officielle",
+          "domain": "login.microsoftonline.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Intune : Blocage du déploiement Windows Autopilot sur les applications Enterprise App Management",
+      "tag": "Intune",
+      "summary": "Microsoft permet désormais d'inclure les applications à mise à jour automatique issues d'Enterprise App Management (EAM) comme éléments bloquants dans les stratégies de préparation Autopilot (Autopilot Device Preparation). La phase de configuration out-of-box (OOBE) reste suspendue tant que ces applications managées ne sont pas complètement installées sur l'appareil. Le consultant doit ajuster ses stratégies de déploiement Autopilot pour y intégrer les applications critiques de sécurité et de productivité, puis valider les temps d'enrôlement sur les nouveaux postes Windows 11.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+          "title": "What's new in Windows Autopilot device preparation - Microsoft Learn",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Intune : Prise en charge de la directive « Enforce Routes » pour les profils VPN Apple et retrait du MDM hérité",
+      "tag": "Intune",
+      "summary": "La mise à jour de service 2610 d'Intune intègre la directive « Enforce Routes » pour les profils VPN sur iOS/iPadOS et macOS, prévenant ainsi les contournements de tunnels et les fuites de trafic (« de-cloaking »). En parallèle, Microsoft supprime définitivement les charges de travail héritées de mise à jour logicielle Apple MDM au profit de la gestion déclarative (Declarative Device Management - DDM). L'administrateur doit réévaluer ses profils VPN Apple pour renforcer le cloisonnement réseau et migrer sans attendre ses stratégies de mise à jour logicielle vers le modèle déclaratif.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-vpn-settings-apple",
+          "title": "Add VPN settings to Apple devices in Microsoft Intune - Microsoft Learn",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Defender for Identity : Déploiement automatique du capteur v3.x, audit Windows et nouvelles alertes Entra ID",
+      "tag": "Defender for Identity",
+      "summary": "Microsoft amorce l'activation automatique par défaut du capteur v3.x et de la configuration de l'audit Windows pour les tenants existants (avec notification de 30 jours et option de désistement), tout en restreignant les capteurs v2.x aux serveurs historiques. Le service enrichit également son catalogue de détections avec de nouvelles alertes ciblant l'enregistrement frauduleux de méthodes MFA fortes, les connexions suspectes via Temporary Access Pass (TAP) et l'attaque Kerberos Diamond Ticket. Le consultant doit vérifier les bannières dans le portail Defender, valider la transition vers le capteur v3.x sur les contrôleurs de domaine récents et actualiser les playbooks SOC.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+          "title": "What's new - Microsoft Defender for Identity - Microsoft Learn",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/install-sensor",
+          "title": "Download and install a Microsoft Defender for Identity sensor v2.x - Microsoft Learn",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Defender for Office 365 : Chasse avancée sur les réunions Teams et audit granulaire des approbations d'e-mails",
+      "tag": "Defender for Office 365",
+      "summary": "Microsoft enrichit l'Advanced Hunting dans Defender XDR avec l'introduction de la table CallActivityEvents pour tracer et enquêter sur les comportements suspects durant les appels et réunions Microsoft Teams. Par ailleurs, les utilisateurs peuvent désormais signaler des réunions ou participants suspects, et la table EmailPostDeliveryEvents intègre le champ ApproverUpn pour identifier nommément les validateurs des actions de remédiation d'e-mails. Les équipes sécurité doivent mettre à jour leurs requêtes KQL d'investigation, paramétrer la boîte de signalement Teams et auditer les pistes d'approbation post-incident.",
+      "note": "",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-overview",
+          "title": "Advanced hunting overview in Microsoft Defender XDR - Microsoft Learn",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        }
+      ]
+    }
+  ]
+}

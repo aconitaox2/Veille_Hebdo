@@ -1,0 +1,82 @@
+{
+  "week": "2026-W44",
+  "date": "2026-11-01",
+  "items": [
+    {
+      "title": "CISA ScubaGear v2.0 : refonte majeure du moteur d'évaluation de sécurité pour Microsoft 365",
+      "tag": "Défensif / blue team",
+      "summary": "L'agence fédérale américaine CISA a publié le 27 octobre 2026 la version 2.0 de ScubaGear, projet open source officiel lancé fin 2022 et revendiquant plus de 30 000 déploiements. Cette mise à jour fondamentale abandonne les anciens modules PowerShell pour basculer vers des requêtes directes aux API REST et Microsoft Graph sur l'ensemble des services M365, augmentant nettement la vitesse d'analyse. Elle introduit un référentiel unifié « Security Suite » (fédérant Defender, Purview, Exchange Online et Teams), intègre la détection de politiques bloquant les agents IA à risque sous Entra ID, ajoute l'évaluation de criticité des applications inscrites et propose la commande Invoke-SCuBADiff pour tracer les dérives de configuration.",
+      "note": "Cet outil permet aux administrateurs et auditeurs de valider la conformité aux exigences BOD 25-01 et aux référentiels SCuBA avec des privilèges restreints (le rôle Global Reader étant désormais suffisant pour la majorité des contrôles).",
+      "sources": [
+        {
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/27/cisa-publishes-significant-updates-scubagear-and-scubagoggles",
+          "title": "CISA Publishes Significant Updates to ScubaGear and ScubaGoggles",
+          "type": "officielle",
+          "domain": "cisa.gov"
+        },
+        {
+          "url": "https://github.com/cisagov/ScubaGear",
+          "title": "GitHub - cisagov/ScubaGear: Automation to assess the state of your M365 tenant against CISA baselines",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "M365Pwned : toolkit graphique d'exploitation et d'exfiltration Microsoft 365 via l'API Graph",
+      "tag": "Offensif / pentest",
+      "summary": "Mis en avant fin octobre 2026 par le chercheur OtterHacker, M365Pwned est un outillage offensif PowerShell 5.1 pourvu d'interfaces WinForms, spécifiquement orienté vers les scénarios post-compromission de tenants Microsoft 365 sans interaction utilisateur. Composé de MailPwned-GUI (Exchange Online/Outlook) et de SharePwned-GUI (SharePoint/OneDrive), le projet permet de naviguer dans les boîtes aux lettres, d'exfiltrer des correspondances, d'émettre des courriels par usurpation et de rechercher des documents sensibles. L'outil repose sur l'abus d'identités d'applications (Service Principals) authentifiées par secret, certificat ou rejeu de jeton JWT détenant des permissions applicatives pré-consenties.",
+      "note": "Son usage se repère dans Microsoft Entra ID via les journaux de connexion des identités d'application (WorkloadIdentities), en filtrant sur les adresses IP sources inattendues ou des User-Agents PowerShell anormaux. Dans le journal d'audit unifié Purview, il convient de traquer les rafales d'événements MailItemsAccessed, SearchExport et FileDownloaded générées par un identifiant d'application non interactif.",
+      "sources": [
+        {
+          "url": "https://github.com/OtterHacker/M365Pwned",
+          "title": "GitHub - OtterHacker/M365Pwned: Two WinForms GUI tools for enumerating, searching, and exfiltrating data from M365 environments",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "Snaffler-ng : portage Python et Impacket pour la découverte de secrets sur les partages réseau",
+      "tag": "Offensif / pentest",
+      "summary": "Développé par le chercheur Daniil (totekuh) et intégré officiellement aux dépôts de Kali Linux 2026.3 le 26 octobre 2026, Snaffler-ng est un portage complet sous Python 3 et Impacket du célèbre outil d'audit Active Directory Snaffler. Affranchi des dépendances d'exécution Windows et .NET, ce projet actif structure un pipeline en trois étapes : reconnaissance des hôtes du domaine via LDAP, énumération des partages SMB et exploration récursive de documents pour y extraire identifiants, mots de passe et clés privées. Il intègre l'inspection à la volée du contenu d'archives (ZIP, 7z, RAR) sans décompression locale et dispose d'options d'évasion IDS par bourrage de requêtes LDAP.",
+      "note": "L'utilisation de Snaffler-ng génère une volumétrie anormale de connexions réseau SMB (ID d'événement Windows Security 4624 de type 3) et d'accès aux objets de partage (ID d'événement 5140 et 5145) sur les serveurs de fichiers, accompagnée de requêtes LDAP massives d'énumération des objets ordinateurs depuis un hôte non répertorié.",
+      "sources": [
+        {
+          "url": "https://github.com/totekuh/snaffler-ng",
+          "title": "GitHub - totekuh/snaffler-ng: Python port of Snaffler using Impacket",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "Katana : crawler d'applications web et cartographie d'API intégré à Kali Linux 2026.3",
+      "tag": "OSINT",
+      "summary": "Katana, le framework open-source d'exploration web et de découverte d'endpoints maintenu par ProjectDiscovery (organisation reconnue comptant plus de 17 800 étoiles sur ce dépôt), a été officiellement inclus dans les packages de Kali Linux 2026.3 le 26 octobre 2026. Conçu pour la phase de cartographie et de reconnaissance OSINT de surface d'attaque, Katana combine un analyseur statique HTML haute performance en Go et un mode Chromium headless pour analyser les applications monopages (SPA) et les flux XHR/fetch dynamiques. L'outil sait extraire automatiquement les routes API, les points d'entrée JavaScript et classer les pages sensibles (formulaires d'authentification ou panneaux d'administration).",
+      "note": "Les requêtes de reconnaissance de Katana se caractérisent dans les journaux de proxy inverses et pare-feu applicatifs (WAF) par une fréquence soutenue de requêtes ciblant les ressources JavaScript et les points de terminaison non documentés avec l'empreinte HTTP d'un moteur Chromium piloté par script.",
+      "sources": [
+        {
+          "url": "https://github.com/projectdiscovery/katana",
+          "title": "GitHub - projectdiscovery/katana: A next-generation crawling and spidering framework",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft FinOps Toolkit v15 : gouvernance des coûts cloud, agents IA et isolation réseau",
+      "tag": "Logiciel PC",
+      "summary": "Microsoft a publié le 29 octobre 2026 la mise à jour v15 (Octobre 2026) de sa suite officielle open source FinOps Toolkit, activement maintenue sous licence MIT pour piloter et rationaliser les environnements Microsoft Cloud. Cette itération apporte un plugin pour Claude Code et GitHub Copilot CLI comprenant 5 agents et un serveur MCP Azure en lecture seule pour automatiser les diagnostics financiers et d'infrastructure par invite textuelle. Les composants « FinOps hubs » gagnent également la prise en charge du déploiement en réseau virtuel fermé (VNet) et des passerelles NAT, tout en intégrant des correctifs de requêtes KQL ciblant les ressources inactives et les optimisations de licences.",
+      "note": "L'encapsulation des déploiements FinOps dans des sous-réseaux privés (VNet) supprime l'exposition directe sur Internet des comptes de stockage d'export de données de consommation, réduisant le risque de fuite de métadonnées d'architecture cloud.",
+      "sources": [
+        {
+          "url": "https://github.com/microsoft/finops-toolkit",
+          "title": "GitHub - microsoft/finops-toolkit: Tools and resources to adopt FinOps on the Microsoft Cloud",
+          "type": "repo",
+          "domain": "github.com"
+        }
+      ]
+    }
+  ]
+}

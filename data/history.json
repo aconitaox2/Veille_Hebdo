@@ -243,5 +243,80 @@
     "section": "outils",
     "week": "2026-W43",
     "title": "Microsoft365-Analytics-Insights build 1854 : reporting d'adoption Copilot et diagnostic de licences"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W44",
+    "title": "Microsoft Entra ID : Application globale du Content Security Policy (CSP) sur la mire de connexion"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W44",
+    "title": "Microsoft Intune : Blocage du déploiement Windows Autopilot sur les applications Enterprise App Management"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W44",
+    "title": "Microsoft Intune : Prise en charge de la directive « Enforce Routes » pour les profils VPN Apple et retrait du MDM hérité"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W44",
+    "title": "Microsoft Defender for Identity : Déploiement automatique du capteur v3.x, audit Windows et nouvelles alertes Entra ID"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W44",
+    "title": "Microsoft Defender for Office 365 : Chasse avancée sur les réunions Teams et audit granulaire des approbations d'e-mails"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W44",
+    "title": "Usurpation du support informatique sous Teams menant à l'escalade AD CS (ESC1/ESC8)"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W44",
+    "title": "Campagnes massives de rançongiciels exploitant le chat externe Teams"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W44",
+    "title": "Apparition du kit SkyW4lker : vol de jetons Microsoft 365 par Device Code Phishing"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W44",
+    "title": "Vulnérabilité critique Brotli CVE-2026-111497 (KEV) : correctifs OOB .NET et parade Azure"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W44",
+    "title": "Alerte CERT-FR : vulnérabilités critiques dans Veeam Backup pour Microsoft 365"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W44",
+    "title": "CISA ScubaGear v2.0 : refonte majeure du moteur d'évaluation de sécurité pour Microsoft 365"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W44",
+    "title": "M365Pwned : toolkit graphique d'exploitation et d'exfiltration Microsoft 365 via l'API Graph"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W44",
+    "title": "Snaffler-ng : portage Python et Impacket pour la découverte de secrets sur les partages réseau"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W44",
+    "title": "Katana : crawler d'applications web et cartographie d'API intégré à Kali Linux 2026.3"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W44",
+    "title": "Microsoft FinOps Toolkit v15 : gouvernance des coûts cloud, agents IA et isolation réseau"
   }
 ]

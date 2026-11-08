@@ -1,0 +1,106 @@
+{
+  "week": "2026-W45",
+  "date": "2026-11-08",
+  "items": [
+    {
+      "title": "AZexec : automatisation offensive et password spray furtif sous Microsoft Entra ID",
+      "tag": "Offensif / pentest",
+      "summary": "AZexec (AZX) est un framework offensif PowerShell conçu pour transposer l'approche et la convivialité de NetExec aux environnements Azure et Microsoft Entra ID. L'outil se concentre sur l'exploitation des autorisations par défaut accordées aux comptes invités (« Azure Null Session ») et automatise une chaîne d'attaque par pulvérisation de mots de passe (password spray) en deux étapes. Il combine une reconnaissance préliminaire furtive sans traces de connexion via l'API GetCredentialType avec des tests d'authentification ciblés par ROPC. Développé par le chercheur Logisek, le projet totalise plus de 150 étoiles sur GitHub et intègre également des modules de pillage de secrets (Key Vault, disques managés, clés BitLocker).",
+      "note": "La phase d'énumération utilisateur via GetCredentialType n'apparaît pas dans les SignInLogs d'Entra ID, mais la phase de validation de mot de passe génère des événements d'authentification ROPC explicites associés à des échecs AADSTS50126 ou des exigences MFA AADSTS50076. La détection repose sur l'identification d'anomalies de volumétrie ROPC sur une courte période et sur la restriction des autorisations de lecture des comptes invités.",
+      "sources": [
+        {
+          "url": "https://github.com/Logisek/AZexec",
+          "title": "Dépôt officiel GitHub - Logisek/AZexec: The Azure Execution Tool",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/Logisek",
+          "title": "Profil GitHub et projets de recherche de Logisek",
+          "type": "autre",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "Suzaku : moteur d'investigation forensique et threat hunting Sigma pour environnements cloud",
+      "tag": "Défensif / blue team",
+      "summary": "Développé en Rust par le collectif japonais Yamato Security (notamment connu pour l'outil de référence Hayabusa), Suzaku (朱雀) est un moteur de détection et de génération de chronologie forensique pour journaux cloud. Conçu pour traiter à très grande vitesse des téraoctets de traces (AWS CloudTrail, journaux d'audit et de connexion Microsoft Entra et Azure Monitor), il applique nativement le format de règles Sigma sans nécessiter l'ingestion préalable dans un SIEM. Le projet consolide les activités par identité compromise et facilite le triage immédiat en extrayant adresses IP malveillantes, profils de requêtes API et anomalies de tokens.",
+      "note": "L'outil est particulièrement utile en réponse à incident pour analyser rapidement des exportations JSON ou CSV de journaux SignInLogs et AuditLogs Microsoft Entra ID en environnement déconnecté, sans impacter les quotas de rétention ou de requêtage du tenant cible.",
+      "sources": [
+        {
+          "url": "https://github.com/Yamato-Security/suzaku",
+          "title": "Dépôt officiel GitHub - Yamato-Security/suzaku",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/Yamato-Security",
+          "title": "Organisation GitHub Yamato Security (Hayabusa, Suzaku)",
+          "type": "officielle",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "SharePointDumper : cartographie d'accès et simulation d'exfiltration Microsoft 365",
+      "tag": "Offensif / pentest",
+      "summary": "SharePointDumper est un outil PowerShell axé sur la simulation d'exfiltration de documents et l'audit de posture DLP à travers l'écosystème SharePoint Online et OneDrive. En exploitant un jeton d'accès délégué Microsoft Graph valide (autorisations Sites.Read.All ou Sites.ReadWrite.All), l'utilitaire énumère de manière exhaustive et récursive l'ensemble des sites, lecteurs et dossiers accessibles par le compte ciblé. Conçu spécifiquement pour les exercices de Purple Teaming et la mise à l'épreuve des SOC, il journalise individuellement chaque appel HTTP pour faciliter la corrélation d'incidents. L'outil est développé et maintenu par le chercheur zh54321.",
+      "note": "L'exécution génère un volume d'appels élevé vers les points de terminaison /v1.0/sites et /drives dans les Microsoft Graph Activity Logs, suivi d'une concentration anormale d'événements FileDownloaded dans le journal d'audit unifié (UAL) de Purview. Des règles de détection comportementale sur le débit de téléchargement documentaire permettent d'identifier l'exfiltration.",
+      "sources": [
+        {
+          "url": "https://github.com/zh54321/SharePointDumper",
+          "title": "Dépôt officiel GitHub - zh54321/SharePointDumper",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/zh54321",
+          "title": "Profil GitHub de zh54321",
+          "type": "autre",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "linux-entra-sso : passerelle d'authentification SSO et d'accès conditionnel pour postes Linux",
+      "tag": "Logiciel PC",
+      "summary": "Maintenu par l'organisation open source de Siemens, linux-entra-sso est une solution d'authentification unifiée pour les postes de travail Linux au sein des parcs Microsoft 365 d'entreprise. Composé d'une extension de navigateur (Firefox, Chrome, Chromium) et d'un service hôte communiquant via DBus avec le composant microsoft-identity-broker (Intune Portal), il permet d'injecter les jetons PRT nécessaires pour respecter les politiques d'accès conditionnel exigeant un appareil conforme. Avec plus de 220 étoiles et des intégrations actives pour distributions comme Ubuntu, ce composant résout un point de blocage historique de l'interopérabilité Linux en environnement d'entreprise.",
+      "note": "Les connexions transitant par ce composant s'affichent dans les journaux d'authentification Entra ID avec les attributs de conformité de l'appareil Linux géré par Intune, évitant ainsi le recours à des exceptions d'accès conditionnel non sécurisées.",
+      "sources": [
+        {
+          "url": "https://github.com/siemens/linux-entra-sso",
+          "title": "Dépôt officiel GitHub - siemens/linux-entra-sso",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/siemens",
+          "title": "Organisation GitHub officielle de Siemens",
+          "type": "officielle",
+          "domain": "github.com"
+        }
+      ]
+    },
+    {
+      "title": "EntraGoat : infrastructure vulnérable pour la formation et le durcissement Entra ID",
+      "tag": "Défensif / blue team",
+      "summary": "Conçu par les chercheurs en sécurité de Semperis (éditeur réputé dans la protection des annuaires Active Directory et cloud), EntraGoat est un environnement de laboratoire déployant intentionnellement des vulnérabilités réelles au sein de Microsoft Entra ID. Présenté aux sessions Arsenal de Black Hat et aux Demo Labs de DEF CON, le projet compte plus de 1 000 étoiles sur GitHub. Il propose une suite de scénarios d'entraînement (abus de propriété de Service Principals, détournement d'unités administratives, contournements d'autorités de certification) avec interface graphique PowerShell WPF pour valider la robustesse des politiques Zero Trust.",
+      "note": "Cet outil permet aux équipes de sécurité de générer des traces réelles d'élévation de privilèges dans un tenant de test afin de valider l'efficacité de leurs requêtes KQL et des règles d'alerte de Microsoft Defender XDR et Sentinel.",
+      "sources": [
+        {
+          "url": "https://github.com/Semperis/EntraGoat",
+          "title": "Dépôt officiel GitHub - Semperis/EntraGoat",
+          "type": "repo",
+          "domain": "github.com"
+        },
+        {
+          "url": "https://github.com/Semperis",
+          "title": "Organisation GitHub officielle de Semperis",
+          "type": "officielle",
+          "domain": "github.com"
+        }
+      ]
+    }
+  ]
+}

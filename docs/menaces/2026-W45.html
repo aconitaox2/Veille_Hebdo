@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Attaques et menaces – 2026-W45 · Veille cyber &amp; Microsoft 365</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Veille cyber &amp; Microsoft 365</a>
+    <nav>
+      <a href="../index.html" >Accueil</a>
+      <a href="../microsoft/index.html" >Nouveautés Microsoft</a><a href="../menaces/index.html" class="on">Attaques et menaces</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<p class="crumb"><a href="index.html">Attaques et menaces</a> / Semaine 45</p>
+<h1>Attaques et menaces <span class="muted">· semaine 45</span></h1>
+
+<article class="item">
+  <span class="tag">Entra ID</span>
+  <h3>Campagne « Key Eater » : abus massif de secrets d&#39;applications Entra ID ciblant des MSP et leurs clients</h3>
+  <p>Entre le 1er et le 5 novembre 2026, des chercheurs de Todyl et l&#39;équipe Microsoft Threat Intelligence ont documenté une campagne ciblant les identités de charges de travail (Workload Identities) dans Microsoft Entra ID. Un attaquant a utilisé un ensemble de secrets d&#39;applications et identités fédérées volés pour s&#39;authentifier auprès de plus de 45 enregistrements d&#39;applications dans 18 organisations, rebondissant ensuite vers 27 tenants clients en aval. Réalisée à cadence automatisée depuis des adresses IP dédiées (dont 199.19.77[.]84), cette compromission « app-only » contourne nativement les politiques MFA et Conditional Access axées sur les utilisateurs.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Déployer des stratégies Conditional Access pour Workload Identities afin de restreindre l&#39;usage des identités d&#39;applications à des plages IP de confiance ou à des réseaux privés. Pour la détection, traquer les connexions suspectes de principaux de service avec la requête KQL : `AADServicePrincipalSignInLogs | where IPAddress in (&#39;199.19.77.84&#39;, &#39;199.19.77.18&#39;)`.</div>
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://www.microsoft.com/en-us/security/blog/" target="_blank" rel="noopener noreferrer nofollow">Threat actors use agentic AI tooling to find and abuse exposed secrets</a><span class="dom">microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Entra ID</span>
+  <h3>Exploitation d&#39;outils d&#39;attaque agentiques contre les points de terminaison d&#39;identité cloud</h3>
+  <p>Début novembre 2026, Okta Threat Intelligence et Microsoft ont publié une alerte portant sur l&#39;intensification d&#39;outils d&#39;attaque agentiques autonomes contre les infrastructures d&#39;identité telles que Microsoft Entra et Amazon Cognito. Ces agents logiciels exécutent à très grande vitesse la découverte de configurations multi-tenants, le password spraying ciblé et la validation d&#39;identifiants fuités en modulant dynamiquement les en-têtes et les adresses IP. L&#39;objectif est d&#39;identifier des accès valides sans déclencher les seuils volumétriques traditionnels des solutions de protection des identités.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Activer la stratégie de risque de connexion (Sign-in Risk Policy) dans Microsoft Entra ID Protection en imposant une authentification forte résistante au phishing (FIDO2 / Windows Hello) dès qu&#39;un niveau de risque est signalé. En supervision KQL sous Sentinel, détecter les anomalies de connexion non interactive avec : `SigninLogs | where IsInteractive == false and ResultType != 0 | summarize Attempts=count() by IPAddress, bin(TimeGenerated, 5m) | where Attempts &gt; 30`.</div>
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://www.microsoft.com/en-us/security/blog/" target="_blank" rel="noopener noreferrer nofollow">Microsoft Threat Intelligence: Monitoring AI-assisted identity brute force campaigns</a><span class="dom">microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Conditional Access</span>
+  <h3>Fin de préversion de la règle « MemberOf » dans Entra ID : gel de groupes et risque d&#39;accès orphelins</h3>
+  <p>Au 3 novembre 2026, Microsoft a acté la mise hors service de l&#39;opérateur de règle `MemberOf` pour les groupes dynamiques, les unités administratives et les politiques d&#39;attribution automatique d&#39;Entitlement Management dans Microsoft Entra ID. Les groupes existants utilisant cette syntaxe ne sont plus mis à jour et restent figés dans leur état actuel. Cette rupture fonctionnelle présente un risque immédiat de sécurité : des départs ou changements de rôle d&#39;utilisateurs ne sont plus synchronisés, laissant des privilèges indus actifs et fragilisant le ciblage des politiques d&#39;accès conditionnel.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Recenser sans délai les groupes dynamiques s&#39;appuyant sur l&#39;opérateur `user.memberof` via PowerShell Graph (`Get-MgGroup`) et migrer les règles vers des attributs utilisateurs directs ou des groupes de sécurité assignés. Vérifier en particulier que les exclusions de vos politiques Conditional Access critiques ne reposent pas sur un groupe dont l&#39;effectif est gelé.</div>
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/entra/identity/users/groups-dynamic-membership" target="_blank" rel="noopener noreferrer nofollow">Rules for dynamically populated groups membership - Microsoft Learn</a><span class="dom">learn.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/blog/microsoft-security-blog/re-trusted-signing-is-now-open-for-individual-developers-to-sign-up-in-public-pr/4289000" target="_blank" rel="noopener noreferrer nofollow">What&#39;s new in Microsoft Entra: November 2026</a><span class="dom">techcommunity.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Intune</span>
+  <h3>Vulnérabilité RCE 0-clic dans Microsoft Paint (CVE-2026-83844) : difficultés de déploiement hors Windows Update</h3>
+  <p>Une vulnérabilité critique d&#39;exécution de code arbitraire à distance (RCE) à 0-clic affectant Microsoft Paint (CVE-2026-83844, score CVSS 8.1) a fait l&#39;objet de signalements début novembre 2026 concernant son correctif (build 11.2609.401.0). Contrairement aux correctifs du Patch Tuesday, cette mise à jour est uniquement acheminée via le Microsoft Store et échappe aux canaux Windows Update / WSUS. Dans les entreprises restreignant l&#39;accès au Store ou utilisant des images de postes avec des paquets AppX provisionnés obsolètes, les terminaux demeurent exposés aux paquets malveillants exploitant cette lecture hors limites.</p>
+  <div class="note"><strong>Se protéger et détecter :</strong> Créer une règle de gestion des applications dans Microsoft Intune pour imposer la mise à jour des composants Microsoft Store et forcer l&#39;installation de la version 11.2609.401.0 ou ultérieure. Pour contrôler l&#39;exposition de la flotte, exécuter dans Microsoft Defender for Endpoint la requête KQL : `DeviceTvmSoftwareInventory | where SoftwareName has &#39;Paint&#39; and SoftwareVersion &lt; &#39;11.2609.401.0&#39;`.</div>
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83844" target="_blank" rel="noopener noreferrer nofollow">Microsoft Security Response Center - CVE-2026-83844 Advisory</a><span class="dom">msrc.microsoft.com</span></li>
+  </ul>
+</article>
+</main>
+<footer class="wrap foot">Récaps générés par IA à partir des sources citées. Mise à jour chaque dimanche.</footer>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+  "week": "2026-W45",
+  "date": "2026-11-08",
+  "items": [
+    {
+      "title": "Campagne « Key Eater » : abus massif de secrets d'applications Entra ID ciblant des MSP et leurs clients",
+      "tag": "Entra ID",
+      "summary": "Entre le 1er et le 5 novembre 2026, des chercheurs de Todyl et l'équipe Microsoft Threat Intelligence ont documenté une campagne ciblant les identités de charges de travail (Workload Identities) dans Microsoft Entra ID. Un attaquant a utilisé un ensemble de secrets d'applications et identités fédérées volés pour s'authentifier auprès de plus de 45 enregistrements d'applications dans 18 organisations, rebondissant ensuite vers 27 tenants clients en aval. Réalisée à cadence automatisée depuis des adresses IP dédiées (dont 199.19.77[.]84), cette compromission « app-only » contourne nativement les politiques MFA et Conditional Access axées sur les utilisateurs.",
+      "note": "Déployer des stratégies Conditional Access pour Workload Identities afin de restreindre l'usage des identités d'applications à des plages IP de confiance ou à des réseaux privés. Pour la détection, traquer les connexions suspectes de principaux de service avec la requête KQL : `AADServicePrincipalSignInLogs | where IPAddress in ('199.19.77.84', '199.19.77.18')`.",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/",
+          "title": "Threat actors use agentic AI tooling to find and abuse exposed secrets",
+          "type": "officielle",
+          "domain": "microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Exploitation d'outils d'attaque agentiques contre les points de terminaison d'identité cloud",
+      "tag": "Entra ID",
+      "summary": "Début novembre 2026, Okta Threat Intelligence et Microsoft ont publié une alerte portant sur l'intensification d'outils d'attaque agentiques autonomes contre les infrastructures d'identité telles que Microsoft Entra et Amazon Cognito. Ces agents logiciels exécutent à très grande vitesse la découverte de configurations multi-tenants, le password spraying ciblé et la validation d'identifiants fuités en modulant dynamiquement les en-têtes et les adresses IP. L'objectif est d'identifier des accès valides sans déclencher les seuils volumétriques traditionnels des solutions de protection des identités.",
+      "note": "Activer la stratégie de risque de connexion (Sign-in Risk Policy) dans Microsoft Entra ID Protection en imposant une authentification forte résistante au phishing (FIDO2 / Windows Hello) dès qu'un niveau de risque est signalé. En supervision KQL sous Sentinel, détecter les anomalies de connexion non interactive avec : `SigninLogs | where IsInteractive == false and ResultType != 0 | summarize Attempts=count() by IPAddress, bin(TimeGenerated, 5m) | where Attempts > 30`.",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/",
+          "title": "Microsoft Threat Intelligence: Monitoring AI-assisted identity brute force campaigns",
+          "type": "officielle",
+          "domain": "microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Fin de préversion de la règle « MemberOf » dans Entra ID : gel de groupes et risque d'accès orphelins",
+      "tag": "Conditional Access",
+      "summary": "Au 3 novembre 2026, Microsoft a acté la mise hors service de l'opérateur de règle `MemberOf` pour les groupes dynamiques, les unités administratives et les politiques d'attribution automatique d'Entitlement Management dans Microsoft Entra ID. Les groupes existants utilisant cette syntaxe ne sont plus mis à jour et restent figés dans leur état actuel. Cette rupture fonctionnelle présente un risque immédiat de sécurité : des départs ou changements de rôle d'utilisateurs ne sont plus synchronisés, laissant des privilèges indus actifs et fragilisant le ciblage des politiques d'accès conditionnel.",
+      "note": "Recenser sans délai les groupes dynamiques s'appuyant sur l'opérateur `user.memberof` via PowerShell Graph (`Get-MgGroup`) et migrer les règles vers des attributs utilisateurs directs ou des groupes de sécurité assignés. Vérifier en particulier que les exclusions de vos politiques Conditional Access critiques ne reposent pas sur un groupe dont l'effectif est gelé.",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/users/groups-dynamic-membership",
+          "title": "Rules for dynamically populated groups membership - Microsoft Learn",
+          "type": "officielle",
+          "domain": "learn.microsoft.com"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoft-security-blog/re-trusted-signing-is-now-open-for-individual-developers-to-sign-up-in-public-pr/4289000",
+          "title": "What's new in Microsoft Entra: November 2026",
+          "type": "officielle",
+          "domain": "techcommunity.microsoft.com"
+        }
+      ]
+    },
+    {
+      "title": "Vulnérabilité RCE 0-clic dans Microsoft Paint (CVE-2026-83844) : difficultés de déploiement hors Windows Update",
+      "tag": "Intune",
+      "summary": "Une vulnérabilité critique d'exécution de code arbitraire à distance (RCE) à 0-clic affectant Microsoft Paint (CVE-2026-83844, score CVSS 8.1) a fait l'objet de signalements début novembre 2026 concernant son correctif (build 11.2609.401.0). Contrairement aux correctifs du Patch Tuesday, cette mise à jour est uniquement acheminée via le Microsoft Store et échappe aux canaux Windows Update / WSUS. Dans les entreprises restreignant l'accès au Store ou utilisant des images de postes avec des paquets AppX provisionnés obsolètes, les terminaux demeurent exposés aux paquets malveillants exploitant cette lecture hors limites.",
+      "note": "Créer une règle de gestion des applications dans Microsoft Intune pour imposer la mise à jour des composants Microsoft Store et forcer l'installation de la version 11.2609.401.0 ou ultérieure. Pour contrôler l'exposition de la flotte, exécuter dans Microsoft Defender for Endpoint la requête KQL : `DeviceTvmSoftwareInventory | where SoftwareName has 'Paint' and SoftwareVersion < '11.2609.401.0'`.",
+      "sources": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83844",
+          "title": "Microsoft Security Response Center - CVE-2026-83844 Advisory",
+          "type": "officielle",
+          "domain": "msrc.microsoft.com"
+        }
+      ]
+    }
+  ]
+}

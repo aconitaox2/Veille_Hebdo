@@ -318,5 +318,75 @@
     "section": "outils",
     "week": "2026-W44",
     "title": "Microsoft FinOps Toolkit v15 : gouvernance des coûts cloud, agents IA et isolation réseau"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W45",
+    "title": "Microsoft Entra : Préversion publique des plans de stratégie d'accès conditionnel (Policy Plans)"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W45",
+    "title": "Defender for Office 365 : Extension du rapport Protection & Posture Insights aux applications collaboratives et au contournement de filtrage"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W45",
+    "title": "Microsoft Entra ID : Enrôlement d'une passkey ou d'une méthode sans mot de passe comme premier facteur MFA (GA)"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W45",
+    "title": "Global Secure Access : Rapprochement de Private Access et Internet Access au sein d'une offre unifiée"
+  },
+  {
+    "section": "microsoft",
+    "week": "2026-W45",
+    "title": "Azure Front Door : Prise en charge de la cryptographie post-quantique hybride avec TLS 1.3"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W45",
+    "title": "Campagne « Key Eater » : abus massif de secrets d'applications Entra ID ciblant des MSP et leurs clients"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W45",
+    "title": "Exploitation d'outils d'attaque agentiques contre les points de terminaison d'identité cloud"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W45",
+    "title": "Fin de préversion de la règle « MemberOf » dans Entra ID : gel de groupes et risque d'accès orphelins"
+  },
+  {
+    "section": "menaces",
+    "week": "2026-W45",
+    "title": "Vulnérabilité RCE 0-clic dans Microsoft Paint (CVE-2026-83844) : difficultés de déploiement hors Windows Update"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W45",
+    "title": "AZexec : automatisation offensive et password spray furtif sous Microsoft Entra ID"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W45",
+    "title": "Suzaku : moteur d'investigation forensique et threat hunting Sigma pour environnements cloud"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W45",
+    "title": "SharePointDumper : cartographie d'accès et simulation d'exfiltration Microsoft 365"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W45",
+    "title": "linux-entra-sso : passerelle d'authentification SSO et d'accès conditionnel pour postes Linux"
+  },
+  {
+    "section": "outils",
+    "week": "2026-W45",
+    "title": "EntraGoat : infrastructure vulnérable pour la formation et le durcissement Entra ID"
   }
 ]

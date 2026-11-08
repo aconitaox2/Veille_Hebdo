@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Nouveautés Microsoft – 2026-W45 · Veille cyber &amp; Microsoft 365</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Veille cyber &amp; Microsoft 365</a>
+    <nav>
+      <a href="../index.html" >Accueil</a>
+      <a href="../microsoft/index.html" class="on">Nouveautés Microsoft</a><a href="../menaces/index.html" >Attaques et menaces</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<p class="crumb"><a href="index.html">Nouveautés Microsoft</a> / Semaine 45</p>
+<h1>Nouveautés Microsoft <span class="muted">· semaine 45</span></h1>
+
+<article class="item">
+  <span class="tag">Conditional Access</span>
+  <h3>Microsoft Entra : Préversion publique des plans de stratégie d&#39;accès conditionnel (Policy Plans)</h3>
+  <p>Microsoft lance la préversion publique des plans de stratégie d&#39;accès conditionnel (« policy plans »), un nouveau modèle destiné à maîtriser la prolifération des règles (« policy sprawl ») à l&#39;échelle de l&#39;entreprise. Ce cadre permet de définir l&#39;intention d&#39;accès à un niveau global et de mutualiser des conditions obligatoires (ex. périmètre d&#39;utilisateurs, exclusions systématiques des comptes d&#39;urgence « break-glass ») héritées par les différentes règles. Pour le consultant, cela fiabilise la gouvernance et évite les erreurs humaines lors de la création de règles individuelles ; il convient de tester ce framework en créant un plan pilote et en vérifiant la bonne prise en compte des exclusions globales.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/blog/microsoft-entra-blog/scale-access-controls-with-microsoft-entra-conditional-access-policy-plans/4569647" target="_blank" rel="noopener noreferrer nofollow">Scale access controls with Microsoft Entra Conditional Access policy plans</a><span class="dom">techcommunity.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview" target="_blank" rel="noopener noreferrer nofollow">What is Conditional Access in Microsoft Entra ID?</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Defender for Office 365</span>
+  <h3>Defender for Office 365 : Extension du rapport Protection &amp; Posture Insights aux applications collaboratives et au contournement de filtrage</h3>
+  <p>Microsoft Defender for Office 365 fait évoluer son rapport à la demande « Protection &amp; Posture Insights » avec de nouvelles métriques critiques. La vue « URL Protection » étend la détection au-delà des e-mails en mesurant et bloquant les clics vers des liens malveillants partagés dans Teams, les documents Office et les réponses de Microsoft 365 Copilot. Une section « Filtering Overrides » identifie désormais précisément les flux malveillants autorisés par des règles de transport ou des listes d&#39;autorisation excessives. Le consultant doit auditer ces contournements pour supprimer les exceptions obsolètes et basculer les exemptions résiduelles vers la Tenant Allow/Block List.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/blog/microsoftdefenderforoffice365blog/enhancements-to-the-protection-and-posture-insights-report/4568163" target="_blank" rel="noopener noreferrer nofollow">Enhancements to the Protection and Posture Insights report</a><span class="dom">techcommunity.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/defender-office-365/mdo-sec-ops-guide" target="_blank" rel="noopener noreferrer nofollow">Microsoft Defender for Office 365 Security Operations Guide</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Entra ID</span>
+  <h3>Microsoft Entra ID : Enrôlement d&#39;une passkey ou d&#39;une méthode sans mot de passe comme premier facteur MFA (GA)</h3>
+  <p>Microsoft annonce la disponibilité générale permettant aux utilisateurs d&#39;enregistrer directement une clé d&#39;accès (passkey) ou une méthode sans mot de passe lors de leur première configuration MFA. Cette évolution supprime l&#39;obligation historique de provisionner au préalable un facteur traditionnel ou plus vulnérable (comme un mot de passe temporaire couplé à du SMS/Voix) avant de pouvoir enregistrer une passkey FIDO2. Pour le consultant, cette avancée accélère la mise en place d&#39;une politique 100 % résistante au phishing dès l&#39;onboarding ; il convient d&#39;activer l&#39;usage du Temporary Access Pass (TAP) et d&#39;adapter les guides d&#39;accueil des collaborateurs.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/blog/microsoft-entra-blog/what%E2%80%99s-new-in-microsoft-entra-november-2026/4556457" target="_blank" rel="noopener noreferrer nofollow">What&#39;s new in Microsoft Entra: November 2026</a><span class="dom">techcommunity.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-authentication-passkeys-fido2" target="_blank" rel="noopener noreferrer nofollow">Enable passkeys (FIDO2) for your organization</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Entra ID</span>
+  <h3>Global Secure Access : Rapprochement de Private Access et Internet Access au sein d&#39;une offre unifiée</h3>
+  <p>Microsoft simplifie son architecture Security Service Edge (SSE) en réunissant Microsoft Entra Private Access et Microsoft Entra Internet Access au sein d&#39;une offre Global Secure Access unifiée. Cette annonce s&#39;accompagne d&#39;ajouts fonctionnels clés, notamment l&#39;introduction d&#39;un pare-feu cloud pour les postes équipés du client GSA et le support du mode « Prefer Local Network » afin d&#39;exclure le trafic réseau domestique (imprimantes locales, serveurs de stockage locaux) du tunnel SSE. Le consultant doit vérifier les prérequis de licences, planifier les profils de redirection réseau et tester le comportement de la connectivité locale chez les télétravailleurs.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/blog/microsoft-entra-blog/catch-microsoft-entra-at-ignite-2026/4513159" target="_blank" rel="noopener noreferrer nofollow">Global Secure Access: Private Access and Internet Access in one offering</a><span class="dom">techcommunity.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/entra/global-secure-access/overview-what-is-global-secure-access" target="_blank" rel="noopener noreferrer nofollow">What is Global Secure Access?</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article><article class="item">
+  <span class="tag">Azure</span>
+  <h3>Azure Front Door : Prise en charge de la cryptographie post-quantique hybride avec TLS 1.3</h3>
+  <p>Azure Front Door prend désormais en charge les mécanismes d&#39;échange de clés hybrides post-quantiques pour les connexions entrantes TLS 1.3. En combinant des algorithmes éprouvés (X25519) à des primitives résistantes aux calculateurs quantiques (telles que ML-KEM/Kyber), cette fonctionnalité neutralise les attaques de type « harvest now, decrypt later » visant les flux exposés à l&#39;edge. Pour le consultant gérant la sécurité périmétrique d&#39;applications Azure ou Microsoft 365, il est recommandé d&#39;activer ces suites cryptographiques sur des profils de recette et de valider les performances ainsi que la compatibilité des clients web et API partenaires.</p>
+  
+  <ul class="sources">
+    <li><span class="stype">officielle</span><a href="https://techcommunity.microsoft.com/blog/post-quantum-crypto-tech-blog/azure-front-door-now-supports-post-quantum-resilient-hybrid-tls-1-3/4571081" target="_blank" rel="noopener noreferrer nofollow">Azure Front Door now Supports Post-Quantum Resilient Hybrid TLS 1.3</a><span class="dom">techcommunity.microsoft.com</span></li><li><span class="stype">officielle</span><a href="https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview" target="_blank" rel="noopener noreferrer nofollow">Azure Front Door documentation</a><span class="dom">learn.microsoft.com</span></li>
+  </ul>
+</article>
+</main>
+<footer class="wrap foot">Récaps générés par IA à partir des sources citées. Mise à jour chaque dimanche.</footer>
+
+</body>
+</html>

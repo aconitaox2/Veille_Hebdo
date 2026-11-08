@@ -1,5 +1,45 @@
 [
   {
+    "t": "Microsoft Entra : Préversion publique des plans de stratégie d'accès conditionnel (Policy Plans)",
+    "s": "Microsoft lance la préversion publique des plans de stratégie d'accès conditionnel (« policy plans »), un nouveau modèle destiné à maîtriser la prolifération des règles (« policy sprawl ») à l'échelle de l'entreprise. Ce cadre permet de définir l'intention d'accès à un niveau global et de mutualiser",
+    "g": "Conditional Access",
+    "w": "2026-W45",
+    "u": "microsoft/2026-W45.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Defender for Office 365 : Extension du rapport Protection & Posture Insights aux applications collaboratives et au contournement de filtrage",
+    "s": "Microsoft Defender for Office 365 fait évoluer son rapport à la demande « Protection & Posture Insights » avec de nouvelles métriques critiques. La vue « URL Protection » étend la détection au-delà des e-mails en mesurant et bloquant les clics vers des liens malveillants partagés dans Teams, les doc",
+    "g": "Defender for Office 365",
+    "w": "2026-W45",
+    "u": "microsoft/2026-W45.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Microsoft Entra ID : Enrôlement d'une passkey ou d'une méthode sans mot de passe comme premier facteur MFA (GA)",
+    "s": "Microsoft annonce la disponibilité générale permettant aux utilisateurs d'enregistrer directement une clé d'accès (passkey) ou une méthode sans mot de passe lors de leur première configuration MFA. Cette évolution supprime l'obligation historique de provisionner au préalable un facteur traditionnel ",
+    "g": "Entra ID",
+    "w": "2026-W45",
+    "u": "microsoft/2026-W45.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Global Secure Access : Rapprochement de Private Access et Internet Access au sein d'une offre unifiée",
+    "s": "Microsoft simplifie son architecture Security Service Edge (SSE) en réunissant Microsoft Entra Private Access et Microsoft Entra Internet Access au sein d'une offre Global Secure Access unifiée. Cette annonce s'accompagne d'ajouts fonctionnels clés, notamment l'introduction d'un pare-feu cloud pour ",
+    "g": "Entra ID",
+    "w": "2026-W45",
+    "u": "microsoft/2026-W45.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Azure Front Door : Prise en charge de la cryptographie post-quantique hybride avec TLS 1.3",
+    "s": "Azure Front Door prend désormais en charge les mécanismes d'échange de clés hybrides post-quantiques pour les connexions entrantes TLS 1.3. En combinant des algorithmes éprouvés (X25519) à des primitives résistantes aux calculateurs quantiques (telles que ML-KEM/Kyber), cette fonctionnalité neutrali",
+    "g": "Azure",
+    "w": "2026-W45",
+    "u": "microsoft/2026-W45.html",
+    "sec": "Nouveautés Microsoft"
+  },
+  {
     "t": "Microsoft Entra ID : Application globale du Content Security Policy (CSP) sur la mire de connexion",
     "s": "Microsoft a finalisé le déploiement mondial d'en-têtes Content Security Policy (CSP) stricts sur le portail d'authentification web login.microsoftonline.com. Cette mesure bloque l'exécution de scripts tiers et toute injection de code non approuvé, protégeant les sessions contre les attaques par inje",
     "g": "Entra ID",
@@ -166,6 +206,38 @@
     "w": "2026-W40",
     "u": "microsoft/2026-W40.html",
     "sec": "Nouveautés Microsoft"
+  },
+  {
+    "t": "Campagne « Key Eater » : abus massif de secrets d'applications Entra ID ciblant des MSP et leurs clients",
+    "s": "Entre le 1er et le 5 novembre 2026, des chercheurs de Todyl et l'équipe Microsoft Threat Intelligence ont documenté une campagne ciblant les identités de charges de travail (Workload Identities) dans Microsoft Entra ID. Un attaquant a utilisé un ensemble de secrets d'applications et identités fédéré",
+    "g": "Entra ID",
+    "w": "2026-W45",
+    "u": "menaces/2026-W45.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Exploitation d'outils d'attaque agentiques contre les points de terminaison d'identité cloud",
+    "s": "Début novembre 2026, Okta Threat Intelligence et Microsoft ont publié une alerte portant sur l'intensification d'outils d'attaque agentiques autonomes contre les infrastructures d'identité telles que Microsoft Entra et Amazon Cognito. Ces agents logiciels exécutent à très grande vitesse la découvert",
+    "g": "Entra ID",
+    "w": "2026-W45",
+    "u": "menaces/2026-W45.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Fin de préversion de la règle « MemberOf » dans Entra ID : gel de groupes et risque d'accès orphelins",
+    "s": "Au 3 novembre 2026, Microsoft a acté la mise hors service de l'opérateur de règle `MemberOf` pour les groupes dynamiques, les unités administratives et les politiques d'attribution automatique d'Entitlement Management dans Microsoft Entra ID. Les groupes existants utilisant cette syntaxe ne sont plu",
+    "g": "Conditional Access",
+    "w": "2026-W45",
+    "u": "menaces/2026-W45.html",
+    "sec": "Attaques et menaces"
+  },
+  {
+    "t": "Vulnérabilité RCE 0-clic dans Microsoft Paint (CVE-2026-83844) : difficultés de déploiement hors Windows Update",
+    "s": "Une vulnérabilité critique d'exécution de code arbitraire à distance (RCE) à 0-clic affectant Microsoft Paint (CVE-2026-83844, score CVSS 8.1) a fait l'objet de signalements début novembre 2026 concernant son correctif (build 11.2609.401.0). Contrairement aux correctifs du Patch Tuesday, cette mise ",
+    "g": "Intune",
+    "w": "2026-W45",
+    "u": "menaces/2026-W45.html",
+    "sec": "Attaques et menaces"
   },
   {
     "t": "Usurpation du support informatique sous Teams menant à l'escalade AD CS (ESC1/ESC8)",
